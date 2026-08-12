@@ -202,7 +202,7 @@ changelog-keywords = ["MyFitnessPal"]
 "github:hoo-dles/morphe-patches" = []
 
 [Niagara-Launcher]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
 uptodown-dlurl = "https://niagara-launcher.en.uptodown.com/android"
