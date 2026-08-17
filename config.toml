@@ -676,6 +676,34 @@ changelog-keywords = ["Windscribe"]
 [Windscribe-VPN.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[Proton-Mail_hxreborn]
+enabled = true
+brand = "hxreborn"
+app-name = "Proton Mail"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
+uptodown-dlurl = "https://protonmail.en.uptodown.com/android"
+
+[Proton-Mail_hxreborn.patches]
+"github:hxreborn/morphe-patches" = []
+
+[Projectivy-Launcher]
+enabled = true
+brand = "hxreborn"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/spocky/projectivy-launcher-android-tv/"
+
+[Projectivy-Launcher.patches]
+"github:hxreborn/morphe-patches" = []
+
+[KineStop]
+enabled = true
+brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.urbandroid.kinestop"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/urbandroid-team/kinestop-car-sickness-aid/"
+changelog-keywords = ["KineStop"]
+
+[KineStop.patches]
+"github:rushiranpise/morphe-patches" = []
+
 [Adobe-Acrobat-Reader] 
 enabled = false
 brand = "hooman"
@@ -806,15 +834,37 @@ uptodown-dlurl = "https://disney-disneyplus.en.uptodown.com/android"
 "github:RookieEnough/De-Vanced" = []
 
 [Facebook]
-enabled = false
+enabled = true
 brand = "de-vanced"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.katana"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
-uptodown-durl = "https://facebook.en.uptodown.com/android"
+uptodown-dlurl = "https://facebook.en.uptodown.com/android"
 arch = "both"
 
 [Facebook.patches]
 "github:RookieEnough/De-Vanced" = []
+
+[Gboard]
+enabled = true
+brand = "jasonwu1994"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.google.android.inputmethod.latin"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard-google-keyboard/"
+uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
+arch = "arm64-v8a"
+
+[Gboard.patches]
+"github:jasonwu1994/Gboard-patches" = []
+
+[LINE]
+enabled = true
+brand = "andrew"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/jp.naver.line.android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/line-corporation/line/"
+uptodown-dlurl = "https://line.en.uptodown.com/android"
+arch = "both"
+
+[LINE.patches]
+"github:andrewliang25/morphe-patches" = []
 
 [Google-Photos]
 enabled = false
@@ -911,15 +961,6 @@ uptodown-dlurl = "https://pixiv.en.uptodown.com/android"
 [Pixiv.patches]
 "github:RookieEnough/De-Vanced" = []
 
-[Proton-Mail]
-enabled = false
-brand = "de-vanced"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
-uptodown-dlurl = "https://protonmail.en.uptodown.com/android"
-
-[Proton-Mail.patches]
-"github:RookieEnough/De-Vanced" = []
-
 [RAR_de-vanced]
 enabled = false
 brand = "de-vanced"
@@ -976,23 +1017,3 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/viber-media-s-a-r-l/viber/"
 [Viber.patches]
 "github:RookieEnough/De-Vanced" = []
 
-[YouTube_anddea]
-enabled = false
-brand = "anddea"
-app-name = "YouTube"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-
-[YouTube_anddea.patches]
-"github:anddea/revanced-patches" = { exclude = ["Visual preferences icons for YouTube"] }
-
-[YT-Music_anddea]
-enabled = false
-brand = "anddea"
-app-name = "YT Music"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-arch = "both"
-
-[YT-Music_anddea.patches]
-"github:anddea/revanced-patches" = { exclude = ["Visual preferences icons for YouTube Music"] }
