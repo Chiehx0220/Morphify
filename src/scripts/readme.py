@@ -32,6 +32,22 @@ PKG_NAMES = {
     "LINE": "jp.naver.line.android",
 }
 
+# Purely cosmetic — a per-app icon for the README table's "Type" column.
+CATEGORIES = {
+    "YouTube": "🎥",
+    "YT-Music": "🎵",
+    "Reddit": "🗨️",
+    "X-Twitter": "🐦",
+    "Instagram": "📸",
+    "Facebook": "📘",
+    "LINE": "💬",
+    "Gboard": "⌨️",
+    "Proton-Mail_hxreborn": "📧",
+    "Niagara-Launcher": "🚀",
+    "Projectivy-Launcher": "🚀",
+    "KineStop": "🏃",
+}
+
 
 def _load_entries() -> list:
     data = load_toml(CONFIG_PATH)
@@ -48,6 +64,15 @@ def _patches_url(patches: dict[str, dict]) -> str | None:
     host, path = key.split(":", 1)
     base = _HOSTS.get(host)
     return f"{base}/{path}" if base else None
+
+
+def _badge_text(s: str) -> str:
+    return s.replace("-", "--").replace(" ", "_")
+
+
+def _source_badge(brand: str, url: str | None) -> str:
+    badge = f"![{brand}](https://img.shields.io/badge/{_badge_text(brand)}-555?style=flat-square&logo=github&logoColor=white)"
+    return f"[{badge}]({url})" if url else badge
 
 
 def _obtainium_link(table: str, app_name: str, brand: str) -> str | None:
@@ -105,25 +130,27 @@ def _build_table() -> str:
     entries = [e for e in _load_entries() if e.enabled]
     rows = sorted(
         (
-            (e.brand, e.app_name, _patches_url(e.patches), _obtainium_link(e.table, e.app_name, e.brand))
+            (e.table, e.brand, e.app_name, _patches_url(e.patches), _obtainium_link(e.table, e.app_name, e.brand))
             for e in entries
         ),
-        key=lambda r: (r[0].lower(), r[1].lower()),
+        key=lambda r: (r[1].lower(), r[2].lower()),
     )
-    brand_count = len({brand for brand, _, _, _ in rows})
+    brand_count = len({brand for _, brand, _, _, _ in rows})
 
     lines = [
         '<div align="center">',
         "",
-        f"*{len(rows)} apps across {brand_count} patch sources*",
+        f"![Apps](https://img.shields.io/badge/apps-{len(rows)}-4c9c4c?style=flat-square)"
+        f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
         "",
-        "| Patch Source | App | |",
-        "|---|---|---|",
+        "| | App | Source | |",
+        "|:---:|---|---|---|",
     ]
-    for brand, app_name, patches_url, ob_link in rows:
-        source = f"[{brand}]({patches_url})" if patches_url else brand
-        obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?logo=obtainium)]({ob_link})" if ob_link else ""
-        lines.append(f"| {source} | {app_name} | {obtainium} |")
+    for table, brand, app_name, patches_url, ob_link in rows:
+        icon = CATEGORIES.get(table, "📦")
+        source = _source_badge(brand, patches_url)
+        obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+        lines.append(f"| {icon} | {app_name} | {source} | {obtainium} |")
     lines += ["", "</div>"]
     return "\n".join(lines)
 
