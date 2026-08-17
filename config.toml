@@ -806,11 +806,11 @@ uptodown-dlurl = "https://disney-disneyplus.en.uptodown.com/android"
 "github:RookieEnough/De-Vanced" = []
 
 [Facebook]
-enabled = false
+enabled = true
 brand = "de-vanced"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.katana"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
-uptodown-durl = "https://facebook.en.uptodown.com/android"
+uptodown-dlurl = "https://facebook.en.uptodown.com/android"
 arch = "both"
 
 [Facebook.patches]
