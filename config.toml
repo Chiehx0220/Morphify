@@ -816,6 +816,15 @@ arch = "both"
 [Facebook.patches]
 "github:RookieEnough/De-Vanced" = []
 
+[Gboard]
+enabled = true
+brand = "jasonwu1994"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard-google-keyboard/"
+uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
+
+[Gboard.patches]
+"github:jasonwu1994/Gboard-patches" = []
+
 [Google-Photos]
 enabled = false
 brand = "de-vanced"
