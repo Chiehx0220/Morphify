@@ -30,6 +30,7 @@ PKG_NAMES = {
     "Facebook": "com.facebook.katana",
     "Gboard": "dev.jason.com.google.android.inputmethod.latin",
     "LINE": "jp.naver.line.android",
+    "Google-Photos": "app.morphe.android.apps.photos",
 }
 
 # Purely cosmetic — a per-app icon for the README table's "Type" column.
