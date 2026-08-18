@@ -870,7 +870,7 @@ arch = "both"
 "github:andrewliang25/morphe-patches" = []
 
 [Google-Photos]
-enabled = false
+enabled = true
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 uptodown-dlurl = "https://google-photos.en.uptodown.com/android"

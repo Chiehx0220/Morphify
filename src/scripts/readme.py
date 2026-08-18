@@ -46,6 +46,7 @@ CATEGORIES = {
     "Niagara-Launcher": "🚀",
     "Projectivy-Launcher": "🚀",
     "KineStop": "🏃",
+    "Google-Photos": "📷",
 }
 
 
