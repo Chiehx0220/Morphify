@@ -585,6 +585,16 @@ changelog-keywords = ["Photo Editor"]
 [Photo-Editor.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[Proton-Mail_rushi]
+enabled = true
+brand = "rushi"
+app-name = "Proton Mail"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
+uptodown-dlurl = "https://protonmail.en.uptodown.com/android"
+
+[Proton-Mail_rushi.patches]
+"github:rushiranpise/morphe-patches" = []
+
 [Proton-VPN_rushi]
 enabled = false
 brand = "rushi"
@@ -678,7 +688,7 @@ changelog-keywords = ["Windscribe"]
 "github:rushiranpise/morphe-patches" = []
 
 [Proton-Mail_hxreborn]
-enabled = true
+enabled = false
 brand = "hxreborn"
 app-name = "Proton Mail"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
