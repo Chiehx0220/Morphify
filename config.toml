@@ -3,7 +3,6 @@ strict-sigcheck = false
 [YouTube]
 enabled = true
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
 [YouTube.patches]
 "github:MorpheApp/morphe-patches" = []
@@ -11,7 +10,6 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 [YT-Music]
 enabled = true
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 arch = "both"
 
 [YT-Music.patches]
@@ -20,7 +18,6 @@ arch = "both"
 [Reddit]
 enabled = true
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
-uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 
 [Reddit.patches]
 "github:MorpheApp/morphe-patches" = []
@@ -29,7 +26,6 @@ uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 enabled = false
 brand = "morphe-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 version = "latest"
 patcher-args = "-e 'Change header' -Ocustom=icons/YouTube/header -e 'Custom branding' -OcustomIcon=icons/YouTube/branding -OcustomName='YouTube Morphe'"
 
@@ -40,7 +36,6 @@ patcher-args = "-e 'Change header' -Ocustom=icons/YouTube/header -e 'Custom bran
 enabled = false
 brand = "morphe-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 arch = "both"
 version = "latest"
 patcher-args = "-e 'Change header' -Ocustom=icons/Music/header -e 'Custom branding' -OcustomIcon=icons/Music/branding -OcustomName='Music Morphe'"
@@ -52,7 +47,6 @@ patcher-args = "-e 'Change header' -Ocustom=icons/Music/header -e 'Custom brandi
 enabled = false
 brand = "morphe-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
-uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 version = "latest"
 patcher-args = "-e 'Custom branding name for Reddit' -OappName='Reddit Morphe'"
 
@@ -63,7 +57,6 @@ patcher-args = "-e 'Custom branding name for Reddit' -OappName='Reddit Morphe'"
 enabled = true
 brand = "piko"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
-uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 
 [X-Twitter.patches]
 "github:crimera/piko" = ["Browse tweet object", "Dynamic color"]
@@ -85,7 +78,6 @@ enabled = false
 brand = "hoo-dles"
 app-name = "AdGuard"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/adguard-software-limited/adguard/"
-uptodown-dlurl = "https://adguard-for-android.en.uptodown.com/android"
 changelog-keywords = ["AdGuard"]
 
 [AdGuard_hoo-dles.patches]
@@ -95,7 +87,6 @@ changelog-keywords = ["AdGuard"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/busuu/busuu-learn-languages/"
-uptodown-dlurl = "https://busuu.en.uptodown.com/android"
 changelog-keywords = ["Busuu"]
 
 [Busuu.patches]
@@ -105,7 +96,6 @@ changelog-keywords = ["Busuu"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cake-corp/cake-lesson-updates-every-day/"
-uptodown-dlurl = "https://me-mycake.en.uptodown.com/android"
 arch = "both"
 changelog-keywords = ["Cake"]
 
@@ -116,7 +106,6 @@ changelog-keywords = ["Cake"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/intsig-information-co-ltd/camscanner-phone-pdf-creator/"
-uptodown-dlurl = "https://camscanner.en.uptodown.com/android"
 changelog-keywords = ["CamScanner"]
 
 [CamScanner.patches]
@@ -126,7 +115,6 @@ changelog-keywords = ["CamScanner"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/"
-uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
 changelog-keywords = ["Duolingo"]
 
 [Duolingo.patches]
@@ -136,7 +124,6 @@ changelog-keywords = ["Duolingo"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/fotmob-as/fotmob-live-soccer-scores/"
-uptodown-dlurl = "https://soccer-scores.en.uptodown.com/android"
 changelog-keywords = ["FotMob"]
 
 [FotMob.patches]
@@ -146,7 +133,6 @@ changelog-keywords = ["FotMob"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/google-news/"
-uptodown-dlurl = "https://google-play-newsstand.en.uptodown.com/android"
 changelog-keywords = ["Google News"]
 
 [Google-News.patches]
@@ -156,7 +142,6 @@ changelog-keywords = ["Google News"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/hellochinese-learn-chinese-mandarin/hellochinese-learn-chinese/"
-uptodown-dlurl = "https://hellochinese.en.uptodown.com/android"
 changelog-keywords = ["Chinese"]
 
 [HelloChinese.patches]
@@ -165,7 +150,6 @@ changelog-keywords = ["Chinese"]
 [ibis-Paint-X]
 enabled = false
 brand = "hoo-dles"
-uptodown-dlurl = "https://ibispaint-x.en.uptodown.com/android"
 changelog-keywords = ["Ibis", "Paint"]
 
 [ibis-Paint-X.patches]
@@ -175,7 +159,6 @@ changelog-keywords = ["Ibis", "Paint"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/zombodroid/meme-generator-free/"
-uptodown-dlurl = "https://meme-generator-free.en.uptodown.com/android"
 changelog-keywords = ["Meme Generator"]
 
 [Meme-Generator.patches]
@@ -185,7 +168,6 @@ changelog-keywords = ["Meme Generator"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/merriam-webster-inc/dictionary-merriam-webster/"
-uptodown-dlurl = "https://merriam-webster.en.uptodown.com/android"
 changelog-keywords = ["Merriam", "Webster"]
 
 [Merriam-Webster.patches]
@@ -195,7 +177,6 @@ changelog-keywords = ["Merriam", "Webster"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/myfitnesspal-inc/calorie-counter-myfitnesspal/"
-uptodown-dlurl = "https://calorie-counter-myfitnesspal.en.uptodown.com/android"
 changelog-keywords = ["MyFitnessPal"]
 
 [MyFitnessPal.patches]
@@ -206,7 +187,6 @@ enabled = true
 brand = "hoo-dles"
 github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/bitpit.launcher"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
-uptodown-dlurl = "https://niagara-launcher.en.uptodown.com/android"
 changelog-keywords = ["Niagara Launcher"]
 
 [Niagara-Launcher.patches]
@@ -216,7 +196,6 @@ changelog-keywords = ["Niagara Launcher"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/teslacoil-software/nova-launcher/"
-uptodown-dlurl = "https://nova-launcher.en.uptodown.com/android"
 changelog-keywords = ["Nova Launcher"]
 
 [Nova-Launcher.patches]
@@ -235,7 +214,6 @@ changelog-keywords = ["Pandora"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/xavier-guillemane/podcast-addict/"
-uptodown-dlurl = "https://podcast-addict.en.uptodown.com/android"
 changelog-keywords = ["Podcast Addict"]
 
 [Podcast-Addict.patches]
@@ -245,7 +223,6 @@ changelog-keywords = ["Podcast Addict"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-prime-video/"
-uptodown-dlurl = "https://amazon-video.en.uptodown.com/android"
 arch = "arm64-v8a"
 changelog-keywords = ["Prime Video"]
 
@@ -256,7 +233,6 @@ changelog-keywords = ["Prime Video"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/urbandroid-team/sleep-as-android-sleep-cycle-tracker-smart-alarm/"
-uptodown-dlurl = "https://sleep-as-android.en.uptodown.com/android"
 changelog-keywords = ["Sleep"]
 
 [Sleep-as-Android.patches]
@@ -266,7 +242,6 @@ changelog-keywords = ["Sleep"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/smart-launcher-team/smart-launcher/"
-uptodown-dlurl = "https://smart-launcher.en.uptodown.com/android"
 changelog-keywords = ["Smart Launcher"]
 
 [Smart-Launcher-6.patches]
@@ -276,7 +251,6 @@ changelog-keywords = ["Smart Launcher"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/sofascore/"
-uptodown-dlurl = "https://sofascore.en.uptodown.com/android"
 changelog-keywords = ["Sofascore"]
 
 [Sofascore.patches]
@@ -286,7 +260,6 @@ changelog-keywords = ["Sofascore"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/neatbytes/solid-explorer-file-manager/"
-uptodown-dlurl = "https://solid-explorer-file-manager.en.uptodown.com/android"
 changelog-keywords = ["Solid Explorer"]
 
 [Solid-Explorer.patches]
@@ -296,7 +269,6 @@ changelog-keywords = ["Solid Explorer"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/soundcloud/soundcloud-soundcloud/"
-uptodown-dlurl = "https://soundcloud.en.uptodown.com/android"
 changelog-keywords = ["SoundCloud"]
 
 [SoundCloud.patches]
@@ -306,7 +278,6 @@ changelog-keywords = ["SoundCloud"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/nebuchadnezzar-doo/wallpapers-hd-4k-backgrounds/"
-uptodown-dlurl = "https://wallpaperscraft.en.uptodown.com/android"
 changelog-keywords = ["Wallcraft"]
 
 [Wallcraft.patches]
@@ -316,7 +287,6 @@ changelog-keywords = ["Wallcraft"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/windyty-se/windy-wind-waves-and-hurricanes-forecast/"
-uptodown-dlurl = "https://windy-wind-waves-and-hurricanes-forecast.en.uptodown.com/android"
 changelog-keywords = ["Windy"]
 
 [Windy.patches]
@@ -326,7 +296,6 @@ changelog-keywords = ["Windy"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/wps-software-pte-ltd/wps-office-pdf/"
-uptodown-dlurl = "https://wps-office.en.uptodown.com/android"
 changelog-keywords = ["WPS"]
 
 [WPS-Office.patches]
@@ -336,7 +305,6 @@ changelog-keywords = ["WPS"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/apryse-software-inc/xodo-pdf-reader-editor/"
-uptodown-dlurl = "https://xodo-docs.en.uptodown.com/android"
 arch = "both"
 changelog-keywords = ["Xodo"]
 
@@ -347,7 +315,6 @@ changelog-keywords = ["Xodo"]
 enabled = false
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inshot-inc-2/screen-recorder-video-recorder-xrecorder/"
-uptodown-dlurl = "https://videoeditor-videorecorder-screenrecorder.en.uptodown.com/android"
 changelog-keywords = ["XRecorder"]
 
 [XRecorder.patches]
@@ -357,7 +324,6 @@ changelog-keywords = ["XRecorder"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cricket-exchange/cricket-exchange-live-score-analysis/"
-uptodown-dlurl = "https://live-line-and-cricket-scores-cricket-exchange.en.uptodown.com/android"
 changelog-keywords = ["CREX"]
 
 [CREX.patches]
@@ -367,7 +333,6 @@ changelog-keywords = ["CREX"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cricbuzz-com/cricbuzz-live-cricket-scores-news/"
-uptodown-dlurl = "https://cricbuzz-cricket-scores-and-news.en.uptodown.com/android"
 changelog-keywords = ["Cricbuzz"]
 
 [Cricbuzz.patches]
@@ -377,7 +342,6 @@ changelog-keywords = ["Cricbuzz"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/lufick/document-scanner-pdf-creator/"
-uptodown-dlurl = "https://doc-scanner.en.uptodown.com/android"
 changelog-keywords = ["Document Scanner"]
 
 [Document-Scanner.patches]
@@ -387,7 +351,6 @@ changelog-keywords = ["Document Scanner"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/eyecon-phone-dialer-contacts/eyecon-caller-id-spam-block/"
-uptodown-dlurl = "https://eyecon-phone-dialer-and-cont-eyecon.en.uptodown.com/android"
 changelog-keywords = ["Eyecon"]
 
 [Eyecon.patches]
@@ -397,7 +360,6 @@ changelog-keywords = ["Eyecon"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/fing-limited/fing-network-tools/"
-uptodown-dlurl = "https://fing-network-tools.en.uptodown.com/android"
 changelog-keywords = ["Fing"]
 
 [Fing.patches]
@@ -417,7 +379,6 @@ changelog-keywords = ["JioHotstar"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/arlosoft/macrodroid-device-automation-2/"
-uptodown-dlurl = "https://macrodroid.en.uptodown.com/android"
 arch = "both"
 changelog-keywords = ["MacroDroid"]
 
@@ -428,7 +389,6 @@ changelog-keywords = ["MacroDroid"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/rafalense/plus-messenger/"
-uptodown-dlurl = "https://telegram-plus.en.uptodown.com/android"
 changelog-keywords = ["Plus Messenger"]
 
 [Plus-Messenger.patches]
@@ -439,7 +399,6 @@ enabled = false
 brand = "paresh"
 app-name = "Proton VPN"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/"
-uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
 changelog-keywords = ["Proton VPN"]
 
 [Proton-VPN_paresh.patches]
@@ -449,7 +408,6 @@ changelog-keywords = ["Proton VPN"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/telegram-fz-llc/telegram-web-version/"
-uptodown-dlurl = "https://telegram.en.uptodown.com/android"
 changelog-keywords = ["Telegram"]
 
 [Telegram.patches]
@@ -459,7 +417,6 @@ changelog-keywords = ["Telegram"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/ticktick-limited/ticktick-to-do-list-with-reminder-day-planner/"
-uptodown-dlurl = "https://ticktick.en.uptodown.com/android"
 changelog-keywords = ["TickTick"]
 
 [TickTick.patches]
@@ -469,7 +426,6 @@ changelog-keywords = ["TickTick"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/true-software-scandinavia-ab/truecaller-caller-id-block/"
-uptodown-dlurl = "https://truecaller.en.uptodown.com/android"
 changelog-keywords = ["Truecaller"]
 
 [Truecaller.patches]
@@ -479,7 +435,6 @@ changelog-keywords = ["Truecaller"]
 enabled = false
 brand = "paresh"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/ubiquiti-labs-llc/vn-video-editor-maker-vlognow/"
-uptodown-dlurl = "https://vn-video-editor.en.uptodown.com/android"
 changelog-keywords = ["VN"]
 
 [VN.patches]
@@ -489,7 +444,6 @@ changelog-keywords = ["VN"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cloudflare/1-1-1-1-faster-safer-internet/"
-uptodown-dlurl = "https://1-1-1-1.en.uptodown.com/android"
 changelog-keywords = ["1.1.1"]
 
 ["1.1.1.1".patches]
@@ -499,7 +453,6 @@ changelog-keywords = ["1.1.1"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/accuweather/accuweather/"
-uptodown-dlurl = "https://accuweather.en.uptodown.com/android"
 changelog-keywords = ["AccuWeather"]
 
 [AccuWeather.patches]
@@ -510,7 +463,6 @@ enabled = false
 brand = "rushi"
 app-name = "AdGuard"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/adguard-software-limited/adguard/"
-uptodown-dlurl = "https://adguard-for-android.en.uptodown.com/android"
 changelog-keywords = ["AdGuard"]
 
 [AdGuard_rushi.patches]
@@ -519,7 +471,6 @@ changelog-keywords = ["AdGuard"]
 [Clickmate]
 enabled = false
 brand = "rushi"
-uptodown-dlurl = "https://clickmate.en.uptodown.com/android"
 changelog-keywords = ["Clickmate"]
 
 [Clickmate.patches]
@@ -529,7 +480,6 @@ changelog-keywords = ["Clickmate"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cpuid/cpu-z/"
-uptodown-dlurl = "https://cpu-z.en.uptodown.com/android"
 changelog-keywords = ["CPU"]
 
 [CPU-Z.patches]
@@ -539,7 +489,6 @@ changelog-keywords = ["CPU"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/cube-apps-limited/call-recorder-cube-acr/"
-uptodown-dlurl = "https://cube-acr.en.uptodown.com/android"
 changelog-keywords = ["Cube ACR", "Call Recorder"]
 
 [Cube-ACR.patches]
@@ -549,7 +498,6 @@ changelog-keywords = ["Cube ACR", "Call Recorder"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/flightradar24-ab/flightradar24-flight-tracker-2/"
-uptodown-dlurl = "https://flightradar24.en.uptodown.com/android"
 changelog-keywords = ["Flightradar"]
 
 [Flightradar24.patches]
@@ -558,7 +506,6 @@ changelog-keywords = ["Flightradar"]
 [Hola-VPN]
 enabled = false
 brand = "rushi"
-uptodown-dlurl = "https://holavpn.en.uptodown.com/android"
 arch = "arm64-v8a"
 changelog-keywords = ["Hola VPN"]
 
@@ -569,7 +516,6 @@ changelog-keywords = ["Hola VPN"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/marcel-bokhorst/netguard-no-root-firewall/"
-uptodown-dlurl = "https://netguard.en.uptodown.com/android"
 changelog-keywords = ["NetGuard"]
 
 [NetGuard.patches]
@@ -579,7 +525,6 @@ changelog-keywords = ["NetGuard"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/dev-macgyver/photo-editor-3/"
-uptodown-dlurl = "https://photo-editor.en.uptodown.com/android"
 changelog-keywords = ["Photo Editor"]
 
 [Photo-Editor.patches]
@@ -590,7 +535,6 @@ enabled = true
 brand = "rushi"
 app-name = "Proton Mail"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
-uptodown-dlurl = "https://protonmail.en.uptodown.com/android"
 
 [Proton-Mail_rushi.patches]
 "github:rushiranpise/morphe-patches" = []
@@ -600,7 +544,6 @@ enabled = false
 brand = "rushi"
 app-name = "Proton VPN"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/"
-uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
 changelog-keywords = ["Proton VPN"]
 
 [Proton-VPN_rushi.patches]
@@ -610,7 +553,6 @@ changelog-keywords = ["Proton VPN"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/psiphon-inc/psiphon-pro-the-internet-freedom-vpn/"
-uptodown-dlurl = "https://psiphon-pro.en.uptodown.com/android"
 changelog-keywords = ["Psiphon"]
 
 [Psiphon-VPN.patches]
@@ -621,7 +563,6 @@ enabled = false
 brand = "rushi"
 app-name = "RAR"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/rar-lab/rar/"
-uptodown-dlurl = "https://rar-for-android.en.uptodown.com/android"
 changelog-keywords = ["RAR"]
 
 [RAR_rushi.patches]
@@ -631,7 +572,6 @@ changelog-keywords = ["RAR"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/ookla/speedtest/"
-uptodown-dlurl = "https://speedtest-net-mobile.en.uptodown.com/android"
 arch = "both"
 changelog-keywords = ["Speedtest"]
 
@@ -642,7 +582,6 @@ changelog-keywords = ["Speedtest"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise/"
-uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 changelog-keywords = ["Splitwise"]
 
 [Splitwise.patches]
@@ -652,7 +591,6 @@ changelog-keywords = ["Splitwise"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/flextech-inc/terabox-cloud-storage-cloud-backup-data-backup/"
-uptodown-dlurl = "https://terabox.en.uptodown.com/android"
 changelog-keywords = ["TeraBox"]
 
 [TeraBox.patches]
@@ -661,7 +599,6 @@ changelog-keywords = ["TeraBox"]
 [Universal-TV-Remote-Control]
 enabled = false
 brand = "rushi"
-uptodown-dlurl = "https://unimote.en.uptodown.com/android"
 changelog-keywords = ["TV", "Remote"]
 
 [Universal-TV-Remote-Control.patches]
@@ -671,7 +608,6 @@ changelog-keywords = ["TV", "Remote"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/"
-uptodown-dlurl = "https://waze.en.uptodown.com/android"
 changelog-keywords = ["Waze"]
 
 [Waze.patches]
@@ -681,7 +617,6 @@ changelog-keywords = ["Waze"]
 enabled = false
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/windscribe/windscribe-vpn/"
-uptodown-dlurl = "https://windscribe.en.uptodown.com/android"
 changelog-keywords = ["Windscribe"]
 
 [Windscribe-VPN.patches]
@@ -692,7 +627,6 @@ enabled = false
 brand = "hxreborn"
 app-name = "Proton Mail"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
-uptodown-dlurl = "https://protonmail.en.uptodown.com/android"
 
 [Proton-Mail_hxreborn.patches]
 "github:hxreborn/morphe-patches" = []
@@ -702,7 +636,6 @@ enabled = true
 brand = "hxreborn"
 github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.spocky.projengmenu"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/spocky/projectivy-launcher-android-tv/"
-uptodown-dlurl = "https://projectivy-launcher.en.uptodown.com/android"
 
 [Projectivy-Launcher.patches]
 "github:hxreborn/morphe-patches" = []
@@ -722,7 +655,6 @@ enabled = false
 brand = "hooman"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.adobe.reader"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/adobe/adobe-acrobat/"
-uptodown-dlurl = "https://adobe-reader.en.uptodown.com/android"
 changelog-keywords = ["Acrobat"]
 
 [Adobe-Acrobat-Reader.patches]
@@ -732,7 +664,6 @@ changelog-keywords = ["Acrobat"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/bandlab/bandlab-music-making-studio/"
-uptodown-dlurl = "https://bandlab.en.uptodown.com/android"
 changelog-keywords = ["BandLab"]
 
 [BandLab.patches]
@@ -742,7 +673,6 @@ changelog-keywords = ["BandLab"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/finch-care-inc/finch-self-care-widget-pet/"
-uptodown-dlurl = "https://finch.en.uptodown.com/android"
 changelog-keywords = ["Finch"]
 
 [Finch.patches]
@@ -752,7 +682,6 @@ changelog-keywords = ["Finch"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inshot-inc/inshot-video-editor-photo-editor/"
-uptodown-dlurl = "https://inshot-editor.en.uptodown.com/android"
 changelog-keywords = ["InShot"]
 
 [InShot.patches]
@@ -762,7 +691,6 @@ changelog-keywords = ["InShot"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/realbyte-inc/money-manager-expense-budget/"
-uptodown-dlurl = "https://money-manager.en.uptodown.com/android"
 changelog-keywords = ["Money Manager"]
 
 [Money-Manager.patches]
@@ -772,7 +700,6 @@ changelog-keywords = ["Money Manager"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/quizlet-inc/quizlet-learn-languages-vocab-with-flashcards/"
-uptodown-dlurl = "https://quizlet.en.uptodown.com/android"
 changelog-keywords = ["Quizlet"]
 
 [Quizlet.patches]
@@ -782,7 +709,6 @@ changelog-keywords = ["Quizlet"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/rumble/rumble/"
-uptodown-dlurl = "https://rumble.en.uptodown.com/android"
 changelog-keywords = ["Rumble"]
 
 [Rumble.patches]
@@ -793,7 +719,6 @@ enabled = false
 app-name = "Tumblr"
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/tumblr-inc/tumblr/"
-uptodown-dlurl = "https://tumblr.en.uptodown.com/android"
 changelog-keywords = ["Tumblr"]
 
 [Tumblr_hooman.patches]
@@ -803,7 +728,6 @@ changelog-keywords = ["Tumblr"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
-uptodown-dlurl = "https://twitch.en.uptodown.com/android"
 changelog-keywords = ["Twitch"]
 
 [Twitch.patches]
@@ -813,7 +737,6 @@ changelog-keywords = ["Twitch"]
 enabled = false
 brand = "hooman"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/naver-webtoon/line-webtoon-free-comics/"
-uptodown-dlurl = "https://webtoon.en.uptodown.com/android"
 changelog-keywords = ["WEBTOON"]
 
 [WEBTOON.patches]
@@ -823,7 +746,6 @@ changelog-keywords = ["WEBTOON"]
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-music-discover-songs/"
-uptodown-dlurl = "https://amazon-mp3.en.uptodown.com/android"
 
 [Amazon-Music.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -832,7 +754,6 @@ uptodown-dlurl = "https://amazon-mp3.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-shopping/"
-uptodown-dlurl = "https://amazon-shopping.en.uptodown.com/android"
 
 [Amazon-Shopping.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -841,7 +762,6 @@ uptodown-dlurl = "https://amazon-shopping.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/disney/disney/"
-uptodown-dlurl = "https://disney-disneyplus.en.uptodown.com/android"
 
 [Disney-Plus.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -851,7 +771,6 @@ enabled = true
 brand = "de-vanced"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.katana"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
-uptodown-dlurl = "https://facebook.en.uptodown.com/android"
 arch = "both"
 
 [Facebook.patches]
@@ -862,7 +781,6 @@ enabled = true
 brand = "jasonwu1994"
 github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.google.android.inputmethod.latin"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard-google-keyboard/"
-uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
 arch = "arm64-v8a"
 
 [Gboard.patches]
@@ -873,7 +791,6 @@ enabled = true
 brand = "andrew"
 github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/jp.naver.line.android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/line-corporation/line/"
-uptodown-dlurl = "https://line.en.uptodown.com/android"
 arch = "both"
 
 [LINE.patches]
@@ -883,7 +800,6 @@ arch = "both"
 enabled = true
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
-uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 
 [Google-Photos.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -892,7 +808,6 @@ uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/google-recorder/"
-uptodown-dlurl = "https://opnemer.en.uptodown.com/android"
 arch = "arm64-v8a"
 skip-sigcheck = true
 
@@ -903,7 +818,6 @@ skip-sigcheck = true
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/smart-launcher-team/icon-pack-studio/"
-uptodown-dlurl = "https://icon-pack-studio.en.uptodown.com/android"
 
 [Icon-Pack-Studio.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -912,7 +826,6 @@ uptodown-dlurl = "https://icon-pack-studio.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inshorts-formerly-news-in-shorts/inshorts-news-in-60-words-2/"
-uptodown-dlurl = "https://inshorts.en.uptodown.com/android"
 arch = "both"
 
 [Inshorts.patches]
@@ -922,7 +835,6 @@ arch = "both"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/letterboxd/letterboxd/"
-uptodown-dlurl = "https://letterboxd.en.uptodown.com/android"
 
 [Letterboxd.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -942,7 +854,6 @@ arch = "both"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/nothing-technology-limited/ear-1/"
-uptodown-dlurl = "https://nothing-x.en.uptodown.com/android"
 
 [Nothing-X.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -951,7 +862,6 @@ uptodown-dlurl = "https://nothing-x.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/peacock-tv-llc/peacock-tv/"
-uptodown-dlurl = "https://peacock-tv.en.uptodown.com/android"
 
 [Peacock-TV.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -960,7 +870,6 @@ uptodown-dlurl = "https://peacock-tv.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-llc/photomath/"
-uptodown-dlurl = "https://photomath.en.uptodown.com/android"
 
 [Photomath.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -969,7 +878,6 @@ uptodown-dlurl = "https://photomath.en.uptodown.com/android"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/pixiv-inc/pixiv/"
-uptodown-dlurl = "https://pixiv.en.uptodown.com/android"
 
 [Pixiv.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -979,7 +887,6 @@ enabled = false
 brand = "de-vanced"
 app-name = "RAR"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/rar-lab/rar/"
-uptodown-dlurl = "https://rar-for-android.en.uptodown.com/android"
 
 [RAR_de-vanced.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -987,7 +894,6 @@ uptodown-dlurl = "https://rar-for-android.en.uptodown.com/android"
 [Strava]
 enabled = false
 brand = "de-vanced"
-uptodown-dlurl = "https://strava.en.uptodown.com/android"
 
 [Strava.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -1007,7 +913,6 @@ arch = "both"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
-uptodown-dlurl = "https://tiktok.en.uptodown.com/android"
 
 [TikTok.patches]
 "github:RookieEnough/De-Vanced" = []
@@ -1017,7 +922,6 @@ app-name = "Tumblr"
 enabled = false
 brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/tumblr-inc/tumblr/"
-uptodown-dlurl = "https://tumblr.en.uptodown.com/android"
 
 [Tumblr_de-vanced.patches]
 "github:RookieEnough/De-Vanced" = []
