@@ -63,7 +63,6 @@ brand = "Piko"
 
 [Instagram]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/instagram/instagram-instagram"
-github-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/instagram"
 patcher-args = "-e 'Theme' -Oamoled=true"
 brand = "Piko"
 arch = "arm64-v8a"
