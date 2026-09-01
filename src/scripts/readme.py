@@ -44,6 +44,7 @@ PKG_NAMES = {
     "Battery-Guru": "com.paget96.batteryguru",
     "Parallel-Space-Pro": "com.parallel.space.pro",
     "AccuBattery": "com.digibites.accubattery",
+    "Athena": "com.kin.athena",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -75,6 +76,7 @@ CATEGORIES = {
     "Battery-Guru": "🔋",
     "Parallel-Space-Pro": "🪞",
     "AccuBattery": "🔌",
+    "Athena": "🛡️",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for

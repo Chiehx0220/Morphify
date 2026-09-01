@@ -998,3 +998,11 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
 [AccuBattery.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[Athena]
+enabled = true
+brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.kin.athena"
+
+[Athena.patches]
+"github:rushiranpise/morphe-patches" = []
+
