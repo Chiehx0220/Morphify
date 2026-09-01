@@ -328,23 +328,19 @@ def _build_table() -> str:
             "<details open>",
             "<summary>Show / hide</summary>",
             "",
-            "| App | Source | Download |",
-            "|---|---|:---:|",
         ]
-        # Icon lives inside the App cell (not its own column) and the Obtainium
-        # badge stacks under Download: a leading/trailing column with an empty
-        # header collapses its <img> to 0 width in GitHub's mobile table
-        # renderer, and folding them into a real, non-empty-header column
-        # sidesteps that entirely.
+        # GitHub's mobile table renderer has two separate bugs that a <table>
+        # can't dodge: an empty-header edge column collapses its <img> to 0
+        # width, and even a plain <table>/<td> pair breaks normal inline text
+        # flow badly enough that a literal nbsp between an image and the text
+        # after it still gets a line wrap forced in. A plain bullet list has
+        # neither problem, since it never enters GitHub's table layout path.
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             icon = _app_icon(table)
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
-            obtainium = f"<br>[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            # A plain space lets narrow mobile columns wrap right after the
-            # icon, stranding it alone on its own line above the name; nbsp
-            # keeps icon+name glued together as one wrap unit.
-            lines.append(f"| {icon}&nbsp;**{app_name}** | {source} | {download}{obtainium} |")
+            obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+            lines.append(f"- {icon}&nbsp;**{app_name}** — {source} {download}{obtainium}")
         lines += ["", "</details>"]
     return "\n".join(lines)
 
