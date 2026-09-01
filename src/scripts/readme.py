@@ -77,6 +77,11 @@ def _source_badge(brand: str, url: str | None) -> str:
     return f"[{badge}]({url})" if url else badge
 
 
+def _download_badge(table: str) -> str:
+    badge = "![Download](https://img.shields.io/badge/Download-4c72c9?style=flat-square&logo=github&logoColor=white)"
+    return f"[{badge}]({REPO_URL}/releases?q={quote(table)}&expanded=true)"
+
+
 def _obtainium_link(table: str, app_name: str, brand: str) -> str | None:
     pkg_name = PKG_NAMES.get(table)
     if not pkg_name:
@@ -145,14 +150,15 @@ def _build_table() -> str:
         f"![Apps](https://img.shields.io/badge/apps-{len(rows)}-4c9c4c?style=flat-square)"
         f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
         "",
-        "| | App | Source | |",
-        "|:---:|---|---|---|",
+        "| | App | Download | Source | |",
+        "|:---:|---|:---:|---|---|",
     ]
     for table, brand, app_name, patches_url, ob_link in rows:
         icon = CATEGORIES.get(table, "📦")
+        download = _download_badge(table)
         source = _source_badge(brand, patches_url)
         obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-        lines.append(f"| {icon} | {app_name} | {source} | {obtainium} |")
+        lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
     lines += ["", "</div>"]
     return "\n".join(lines)
 
