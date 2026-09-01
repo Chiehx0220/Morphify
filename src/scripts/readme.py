@@ -36,6 +36,8 @@ PKG_NAMES = {
     "Messenger": "app.morphe.messenger.orca",
     "Twitch": "tv.twitch.android.app",
     "IMDb": "com.imdb.mobile",
+    "SketchBook": "com.adsk.sketchbook",
+    "AccuWeather": "com.accuweather.android",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -59,6 +61,8 @@ CATEGORIES = {
     "Messenger": "📩",
     "Twitch": "🎮",
     "IMDb": "🎬",
+    "SketchBook": "🎨",
+    "AccuWeather": "🌦️",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -79,6 +83,7 @@ BRAND_ICONS = {
     "Messenger": ("messenger", "0084FF"),
     "Twitch": ("twitch", "9146FF"),
     "IMDb": ("imdb", "F5C518"),
+    "AccuWeather": ("accuweather", "EF4023"),
 }
 
 

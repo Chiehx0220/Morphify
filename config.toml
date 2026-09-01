@@ -449,7 +449,7 @@ changelog-keywords = ["1.1.1"]
 "github:rushiranpise/morphe-patches" = []
 
 [AccuWeather]
-enabled = false
+enabled = true
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/accuweather/accuweather/"
 changelog-keywords = ["AccuWeather"]
@@ -949,4 +949,12 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/imdb/imdb-imdb/"
 
 [IMDb.patches]
 "github:jkennethcarino/adobo" = []
+
+[SketchBook]
+enabled = true
+brand = "kiraio-moe"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/sketchbook/sketchbook-draw-and-paint/"
+
+[SketchBook.patches]
+"github:kiraio-moe/Lain-Patches" = []
 
