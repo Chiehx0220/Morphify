@@ -942,3 +942,11 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/viber-media-s-a-r-l/viber/"
 [Viber.patches]
 "github:RookieEnough/De-Vanced" = []
 
+[IMDb]
+enabled = true
+brand = "jkennethcarino"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/imdb/imdb-imdb/"
+
+[IMDb.patches]
+"github:jkennethcarino/adobo" = []
+

@@ -35,6 +35,7 @@ PKG_NAMES = {
     "TikTok_icysymmetra": "com.zhiliaoapp.musically",
     "Messenger": "app.morphe.messenger.orca",
     "Twitch": "tv.twitch.android.app",
+    "IMDb": "com.imdb.mobile",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -57,6 +58,7 @@ CATEGORIES = {
     "TikTok_icysymmetra": "🎶",
     "Messenger": "📩",
     "Twitch": "🎮",
+    "IMDb": "🎬",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -76,6 +78,7 @@ BRAND_ICONS = {
     "TikTok_icysymmetra": ("tiktok", "000000"),
     "Messenger": ("messenger", "0084FF"),
     "Twitch": ("twitch", "9146FF"),
+    "IMDb": ("imdb", "F5C518"),
 }
 
 
