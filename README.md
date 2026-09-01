@@ -27,11 +27,15 @@
 
 ![Apps](https://img.shields.io/badge/apps-31-4c9c4c?style=flat-square) ![Sources](https://img.shields.io/badge/sources-13-4c72c9?style=flat-square)
 
-[🎬 Media & Entertainment (7)](#media-entertainment) &nbsp;|&nbsp; [💬 Social & Messaging (8)](#social-messaging) &nbsp;|&nbsp; [🔒 Privacy & Security (4)](#privacy-security) &nbsp;|&nbsp; [🛠️ Utilities (6)](#utilities) &nbsp;|&nbsp; [📚 Education (2)](#education) &nbsp;|&nbsp; [🎨 Creativity (2)](#creativity) &nbsp;|&nbsp; [🚀 Launchers (2)](#launchers)
+[🎬 Media & Entertainment (7)](#user-content-media-entertainment) &nbsp;|&nbsp; [💬 Social & Messaging (8)](#user-content-social-messaging) &nbsp;|&nbsp; [🔒 Privacy & Security (4)](#user-content-privacy-security) &nbsp;|&nbsp; [🛠️ Utilities (6)](#user-content-utilities) &nbsp;|&nbsp; [📚 Education (2)](#user-content-education) &nbsp;|&nbsp; [🎨 Creativity (2)](#user-content-creativity) &nbsp;|&nbsp; [🚀 Launchers (2)](#user-content-launchers)
 
 </div>
 
-<h4 id="media-entertainment">🎬 Media & Entertainment <sub>(7)</sub></h4>
+<div align="center">
+
+<h3 id="media-entertainment">🎬 Media & Entertainment <sub>(7)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -48,7 +52,11 @@
 
 </details>
 
-<h4 id="social-messaging">💬 Social & Messaging <sub>(8)</sub></h4>
+<div align="center">
+
+<h3 id="social-messaging">💬 Social & Messaging <sub>(8)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -66,7 +74,11 @@
 
 </details>
 
-<h4 id="privacy-security">🔒 Privacy & Security <sub>(4)</sub></h4>
+<div align="center">
+
+<h3 id="privacy-security">🔒 Privacy & Security <sub>(4)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -80,7 +92,11 @@
 
 </details>
 
-<h4 id="utilities">🛠️ Utilities <sub>(6)</sub></h4>
+<div align="center">
+
+<h3 id="utilities">🛠️ Utilities <sub>(6)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -96,7 +112,11 @@
 
 </details>
 
-<h4 id="education">📚 Education <sub>(2)</sub></h4>
+<div align="center">
+
+<h3 id="education">📚 Education <sub>(2)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -108,7 +128,11 @@
 
 </details>
 
-<h4 id="creativity">🎨 Creativity <sub>(2)</sub></h4>
+<div align="center">
+
+<h3 id="creativity">🎨 Creativity <sub>(2)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>
@@ -120,7 +144,11 @@
 
 </details>
 
-<h4 id="launchers">🚀 Launchers <sub>(2)</sub></h4>
+<div align="center">
+
+<h3 id="launchers">🚀 Launchers <sub>(2)</sub></h3>
+
+</div>
 
 <details open>
 <summary>Show / hide</summary>

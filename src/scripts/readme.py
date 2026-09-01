@@ -286,7 +286,9 @@ def _build_table() -> str:
         f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
         "",
     ]
-    navlinks = [f"[{CATEGORY_ICONS.get(c, '📦')} {c} ({len(groups[c])})](#{_slugify(c)})" for c in order]
+    # GitHub prefixes hand-written heading `id`s with "user-content-" to avoid
+    # colliding with its own page ids, so the anchor links must match that.
+    navlinks = [f"[{CATEGORY_ICONS.get(c, '📦')} {c} ({len(groups[c])})](#user-content-{_slugify(c)})" for c in order]
     lines.append(" &nbsp;|&nbsp; ".join(navlinks))
     lines.append("")
     lines.append("</div>")
@@ -295,7 +297,11 @@ def _build_table() -> str:
         anchor = _slugify(category)
         lines += [
             "",
-            f'<h4 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} <sub>({len(groups[category])})</sub></h4>',
+            '<div align="center">',
+            "",
+            f'<h3 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} <sub>({len(groups[category])})</sub></h3>',
+            "",
+            "</div>",
             "",
             "<details open>",
             "<summary>Show / hide</summary>",
