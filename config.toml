@@ -982,3 +982,11 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/paget96/battery-guru-health-sav
 [Battery-Guru.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[Parallel-Space-Pro]
+enabled = true
+brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.parallel.space.pro"
+
+[Parallel-Space-Pro.patches]
+"github:rushiranpise/morphe-patches" = []
+

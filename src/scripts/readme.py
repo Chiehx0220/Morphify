@@ -42,6 +42,7 @@ PKG_NAMES = {
     "Mimo": "com.getmimo",
     "Sleep-as-Android": "com.urbandroid.sleep",
     "Battery-Guru": "com.paget96.batteryguru",
+    "Parallel-Space-Pro": "com.parallel.space.pro",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -71,6 +72,7 @@ CATEGORIES = {
     "Mimo": "💻",
     "Sleep-as-Android": "😴",
     "Battery-Guru": "🔋",
+    "Parallel-Space-Pro": "🪞",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
