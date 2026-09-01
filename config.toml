@@ -112,7 +112,7 @@ changelog-keywords = ["CamScanner"]
 "github:hoo-dles/morphe-patches" = []
 
 [Duolingo]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/"
 changelog-keywords = ["Duolingo"]
@@ -840,15 +840,15 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/letterboxd/letterboxd/"
 "github:RookieEnough/De-Vanced" = []
 
 [Messenger]
-enabled = false
-brand = "de-vanced"
+enabled = true
+brand = "rushi"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.orca"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-technologies-llc/messenger/"
 # uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
 arch = "both"
 
 [Messenger.patches]
-"github:RookieEnough/De-Vanced" = []
+"github:rushiranpise/morphe-patches" = []
 
 [Nothing-X]
 enabled = false
@@ -916,6 +916,15 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-includin
 
 [TikTok.patches]
 "github:RookieEnough/De-Vanced" = []
+
+[TikTok_icysymmetra]
+enabled = true
+brand = "icysymmetra"
+app-name = "TikTok"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
+
+[TikTok_icysymmetra.patches]
+"github:icysymmetra/tiktok-patches-for-morphe" = []
 
 [Tumblr_de-vanced]
 app-name = "Tumblr"
