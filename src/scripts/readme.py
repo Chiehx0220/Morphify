@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -258,6 +259,10 @@ def _obtainium_link(table: str, app_name: str, brand: str) -> str | None:
     return f"https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/{encoded}"
 
 
+def _slugify(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
 def _build_table() -> str:
     entries = [e for e in _load_entries() if e.enabled]
     rows = sorted(
@@ -279,11 +284,21 @@ def _build_table() -> str:
         "",
         f"![Apps](https://img.shields.io/badge/apps-{len(rows)}-4c9c4c?style=flat-square)"
         f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
+        "",
     ]
+    navlinks = [f"[{CATEGORY_ICONS.get(c, '📦')} {c} ({len(groups[c])})](#{_slugify(c)})" for c in order]
+    lines.append(" &nbsp;|&nbsp; ".join(navlinks))
+    lines.append("")
+    lines.append("</div>")
+
     for category in order:
+        anchor = _slugify(category)
         lines += [
             "",
-            f"#### {CATEGORY_ICONS.get(category, '📦')} {category}",
+            f'<h4 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} <sub>({len(groups[category])})</sub></h4>',
+            "",
+            "<details>",
+            "<summary>Show / hide</summary>",
             "",
             "| | App | Download | Source | |",
             "|:---:|---|:---:|---|---|",
@@ -294,7 +309,7 @@ def _build_table() -> str:
             source = _source_badge(brand, patches_url)
             obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
             lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
-    lines += ["", "</div>"]
+        lines += ["", "</details>"]
     return "\n".join(lines)
 
 
