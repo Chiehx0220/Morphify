@@ -265,7 +265,7 @@ changelog-keywords = ["Solid Explorer"]
 "github:hoo-dles/morphe-patches" = []
 
 [SoundCloud]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/soundcloud/soundcloud-soundcloud/"
 changelog-keywords = ["SoundCloud"]

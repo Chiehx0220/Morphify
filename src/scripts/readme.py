@@ -48,6 +48,7 @@ PKG_NAMES = {
     "SD-Maid-SE": "eu.darken.sdmse",
     "CrazyGames": "com.crazygames.crazygamesapp",
     "KakaoTalk": "com.kakao.talk",
+    "SoundCloud": "com.soundcloud.android",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -83,6 +84,7 @@ CATEGORIES = {
     "SD-Maid-SE": "🧹",
     "CrazyGames": "🎮",
     "KakaoTalk": "💬",
+    "SoundCloud": "🎧",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -100,6 +102,7 @@ BRAND_ICONS = {
     "Google-Photos": ("googlephotos", "FBBC04"),
     "Duolingo": ("duolingo", "58CC02"),
     "KakaoTalk": ("kakaotalk", "FFCD00"),
+    "SoundCloud": ("soundcloud", "FF5500"),
     "TikTok_icysymmetra": ("tiktok", "000000"),
     "Messenger": ("messenger", "0084FF"),
     "Twitch": ("twitch", "9146FF"),
