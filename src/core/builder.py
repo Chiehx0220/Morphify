@@ -116,7 +116,9 @@ def _extract_base_apk(apkm: Path, pkg_name: str, dest_dir: Path) -> Path:
         if len(candidates) == 1:
             zf.extract(candidates[0], dest_dir)
             return dest_dir / candidates[0]
-    raise BuilderError(f"Neither 'base.apk' nor '{pkg_name}.apk' found inside {apkm.name}")
+
+        contents = ", ".join(sorted(names)) or "(empty)"
+    raise BuilderError(f"Neither 'base.apk' nor '{pkg_name}.apk' found inside {apkm.name}; contents: {contents}")
 
 def _verify_sig(dl_result: DownloadResult, pkg_name: str, patcher: PatcherCLI, table: str, skip_sigcheck: bool, strict_sigcheck: bool) -> None:
     if skip_sigcheck:

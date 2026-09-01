@@ -841,9 +841,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/letterboxd/letterboxd/"
 [Messenger]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.orca"
-# apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-technologies-llc/messenger/"
-# uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-technologies-llc/messenger/"
 arch = "both"
 
 [Messenger.patches]
