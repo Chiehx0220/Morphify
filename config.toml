@@ -990,3 +990,11 @@ github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/co
 [Parallel-Space-Pro.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[AccuBattery]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
+
+[AccuBattery.patches]
+"github:rushiranpise/morphe-patches" = []
+
