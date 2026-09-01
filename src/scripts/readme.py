@@ -46,6 +46,8 @@ PKG_NAMES = {
     "Athena": "com.kin.athena",
     "Proton-Pass": "proton.android.pass",
     "SD-Maid-SE": "eu.darken.sdmse",
+    "CrazyGames": "com.crazygames.crazygamesapp",
+    "KakaoTalk": "com.kakao.talk",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -79,6 +81,8 @@ CATEGORIES = {
     "Athena": "🛡️",
     "Proton-Pass": "🔑",
     "SD-Maid-SE": "🧹",
+    "CrazyGames": "🎮",
+    "KakaoTalk": "💬",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -95,6 +99,7 @@ BRAND_ICONS = {
     "Proton-Mail_hxreborn": ("protonmail", "6D4AFF"),
     "Google-Photos": ("googlephotos", "FBBC04"),
     "Duolingo": ("duolingo", "58CC02"),
+    "KakaoTalk": ("kakaotalk", "FFCD00"),
     "TikTok_icysymmetra": ("tiktok", "000000"),
     "Messenger": ("messenger", "0084FF"),
     "Twitch": ("twitch", "9146FF"),
