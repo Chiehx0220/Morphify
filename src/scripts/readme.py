@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -110,6 +111,63 @@ BRAND_ICONS = {
     "AccuWeather": ("accuweather", "EF4023"),
 }
 
+# Display order for the grouped README table; apps not listed here fall
+# into an "Other" group appended at the end.
+CATEGORY_ORDER = [
+    "Media & Entertainment",
+    "Social & Messaging",
+    "Privacy & Security",
+    "Utilities",
+    "Education",
+    "Creativity",
+    "Launchers",
+]
+
+CATEGORY_ICONS = {
+    "Media & Entertainment": "🎬",
+    "Social & Messaging": "💬",
+    "Privacy & Security": "🔒",
+    "Utilities": "🛠️",
+    "Education": "📚",
+    "Creativity": "🎨",
+    "Launchers": "🚀",
+    "Other": "📦",
+}
+
+CATEGORY_GROUP = {
+    "YouTube": "Media & Entertainment",
+    "YT-Music": "Media & Entertainment",
+    "SoundCloud": "Media & Entertainment",
+    "IMDb": "Media & Entertainment",
+    "Twitch": "Media & Entertainment",
+    "CrazyGames": "Media & Entertainment",
+    "Google-Photos": "Media & Entertainment",
+    "Instagram": "Social & Messaging",
+    "Facebook": "Social & Messaging",
+    "Messenger": "Social & Messaging",
+    "X-Twitter": "Social & Messaging",
+    "LINE": "Social & Messaging",
+    "KakaoTalk": "Social & Messaging",
+    "Reddit": "Social & Messaging",
+    "TikTok_icysymmetra": "Social & Messaging",
+    "Proton-Mail_hxreborn": "Privacy & Security",
+    "Proton-Pass": "Privacy & Security",
+    "Athena": "Privacy & Security",
+    "SD-Maid-SE": "Privacy & Security",
+    "Gboard": "Utilities",
+    "AccuBattery": "Utilities",
+    "AccuWeather": "Utilities",
+    "Sleep-as-Android": "Utilities",
+    "Parallel-Space-Pro": "Utilities",
+    "KineStop": "Utilities",
+    "Duolingo": "Education",
+    "Mimo": "Education",
+    "SketchBook": "Creativity",
+    "PictureThis": "Creativity",
+    "Niagara-Launcher": "Launchers",
+    "Projectivy-Launcher": "Launchers",
+}
+
 
 def _load_entries() -> list:
     data = load_toml(CONFIG_PATH)
@@ -137,7 +195,25 @@ def _source_badge(brand: str, url: str | None) -> str:
     return f"[{badge}]({url})" if url else badge
 
 
+_ICONS_DIR = Path("images/icons")
+_ICON_MANIFEST_PATH = _ICONS_DIR / "manifest.json"
+
+
+def _icon_manifest() -> dict[str, str]:
+    if not _ICON_MANIFEST_PATH.exists():
+        return {}
+    return json.loads(_ICON_MANIFEST_PATH.read_text(encoding="utf-8"))
+
+
 def _app_icon(table: str) -> str:
+    # Real, circle-cropped Play Store icons (fetched by src/scripts/banner.py)
+    # take priority over the generic Simple Icons brand logo / emoji fallback.
+    path = _ICONS_DIR / f"{table}.png"
+    if path.exists():
+        img = f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
+        if store_url := _icon_manifest().get(table):
+            return f'<a href="{store_url}" target="_blank" rel="noopener noreferrer">{img}</a>'
+        return img
     if brand_icon := BRAND_ICONS.get(table):
         slug, _ = brand_icon
         return f'<img src="https://cdn.simpleicons.org/{slug}" width="20" height="20" alt="">'
@@ -201,6 +277,10 @@ def _obtainium_link(table: str, app_name: str, brand: str) -> str | None:
     return f"https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/{encoded}"
 
 
+def _slugify(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
 def _build_table() -> str:
     entries = [e for e in _load_entries() if e.enabled]
     rows = sorted(
@@ -212,22 +292,48 @@ def _build_table() -> str:
     )
     brand_count = len({brand for _, brand, _, _, _ in rows})
 
+    groups: dict[str, list[tuple]] = {}
+    for row in rows:
+        groups.setdefault(CATEGORY_GROUP.get(row[0], "Other"), []).append(row)
+    order = [c for c in (*CATEGORY_ORDER, "Other") if c in groups]
+
     lines = [
         '<div align="center">',
         "",
         f"![Apps](https://img.shields.io/badge/apps-{len(rows)}-4c9c4c?style=flat-square)"
         f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
         "",
-        "| | App | Download | Source | |",
-        "|:---:|---|:---:|---|---|",
     ]
-    for table, brand, app_name, patches_url, ob_link in rows:
-        icon = _app_icon(table)
-        download = _download_badge(table)
-        source = _source_badge(brand, patches_url)
-        obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-        lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
-    lines += ["", "</div>"]
+    # GitHub prefixes hand-written heading `id`s with "user-content-" to avoid
+    # colliding with its own page ids, so the anchor links must match that.
+    navlinks = [f"[{CATEGORY_ICONS.get(c, '📦')} {c} ({len(groups[c])})](#user-content-{_slugify(c)})" for c in order]
+    lines.append(" &nbsp;|&nbsp; ".join(navlinks))
+    lines.append("")
+    lines.append("</div>")
+
+    for category in order:
+        anchor = _slugify(category)
+        lines += [
+            "",
+            '<div align="center">',
+            "",
+            f'<h3 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} ({len(groups[category])})</h3>',
+            "",
+            "</div>",
+            "",
+            "<details open>",
+            "<summary>Show / hide</summary>",
+            "",
+            "| | App | Source | Download | |",
+            "|:---:|---|---|:---:|---|",
+        ]
+        for table, brand, app_name, patches_url, ob_link in groups[category]:
+            icon = _app_icon(table)
+            download = _download_badge(table)
+            source = _source_badge(brand, patches_url)
+            obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+            lines.append(f"| {icon} | {app_name} | {source} | {download} | {obtainium} |")
+        lines += ["", "</details>"]
     return "\n".join(lines)
 
 
