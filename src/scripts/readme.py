@@ -41,6 +41,7 @@ PKG_NAMES = {
     "PictureThis": "cn.danatech.xingseus",
     "Mimo": "com.getmimo",
     "Sleep-as-Android": "com.urbandroid.sleep",
+    "Battery-Guru": "com.paget96.batteryguru",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -69,6 +70,7 @@ CATEGORIES = {
     "PictureThis": "🌿",
     "Mimo": "💻",
     "Sleep-as-Android": "😴",
+    "Battery-Guru": "🔋",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
