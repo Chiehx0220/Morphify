@@ -341,7 +341,10 @@ def _build_table() -> str:
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
             obtainium = f"<br>[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"| {icon} **{app_name}** | {source} | {download}{obtainium} |")
+            # A plain space lets narrow mobile columns wrap right after the
+            # icon, stranding it alone on its own line above the name; nbsp
+            # keeps icon+name glued together as one wrap unit.
+            lines.append(f"| {icon}&nbsp;**{app_name}** | {source} | {download}{obtainium} |")
         lines += ["", "</details>"]
     return "\n".join(lines)
 
