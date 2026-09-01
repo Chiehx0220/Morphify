@@ -32,6 +32,7 @@ PKG_NAMES = {
     "LINE": "jp.naver.line.android",
     "Google-Photos": "app.morphe.android.apps.photos",
     "Duolingo": "com.duolingo",
+    "TikTok_icysymmetra": "com.zhiliaoapp.musically",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -51,6 +52,7 @@ CATEGORIES = {
     "KineStop": "🏃",
     "Google-Photos": "📷",
     "Duolingo": "🦉",
+    "TikTok_icysymmetra": "🎶",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -67,6 +69,7 @@ BRAND_ICONS = {
     "Proton-Mail_rushi": ("protonmail", "6D4AFF"),
     "Google-Photos": ("googlephotos", "FBBC04"),
     "Duolingo": ("duolingo", "58CC02"),
+    "TikTok_icysymmetra": ("tiktok", "000000"),
 }
 
 

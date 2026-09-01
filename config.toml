@@ -917,6 +917,15 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-includin
 [TikTok.patches]
 "github:RookieEnough/De-Vanced" = []
 
+[TikTok_icysymmetra]
+enabled = true
+brand = "icysymmetra"
+app-name = "TikTok"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
+
+[TikTok_icysymmetra.patches]
+"github:icysymmetra/tiktok-patches-for-morphe" = []
+
 [Tumblr_de-vanced]
 app-name = "Tumblr"
 enabled = false
