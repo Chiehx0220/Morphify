@@ -340,7 +340,10 @@ def _build_table() -> str:
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
             obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"- {icon}&nbsp;**{app_name}** — {source} {download}{obtainium}")
+            # nbsp alone isn't enough: GitHub mobile still lets an inline <img>
+            # break away from adjacent text. Wrapping icon+name in a single
+            # white-space:nowrap span is what actually keeps them glued.
+            lines.append(f'- <span style="white-space:nowrap">{icon}&nbsp;**{app_name}**</span> — {source} {download}{obtainium}')
         lines += ["", "</details>"]
     return "\n".join(lines)
 
