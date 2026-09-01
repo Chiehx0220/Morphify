@@ -798,11 +798,11 @@ arch = "both"
 
 [Google-Photos]
 enabled = true
-brand = "de-vanced"
+brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 
 [Google-Photos.patches]
-"github:RookieEnough/De-Vanced" = []
+"github:rushiranpise/morphe-patches" = []
 
 [Google-Recorder]
 enabled = false
