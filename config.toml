@@ -1006,3 +1006,11 @@ github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/co
 [Athena.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[Proton-Pass]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/proton-pass-password-manager/"
+
+[Proton-Pass.patches]
+"github:rushiranpise/morphe-patches" = []
+

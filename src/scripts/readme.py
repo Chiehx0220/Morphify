@@ -45,6 +45,7 @@ PKG_NAMES = {
     "Parallel-Space-Pro": "com.parallel.space.pro",
     "AccuBattery": "com.digibites.accubattery",
     "Athena": "com.kin.athena",
+    "Proton-Pass": "proton.android.pass",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -77,6 +78,7 @@ CATEGORIES = {
     "Parallel-Space-Pro": "🪞",
     "AccuBattery": "🔌",
     "Athena": "🛡️",
+    "Proton-Pass": "🔑",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
