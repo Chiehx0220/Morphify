@@ -60,7 +60,6 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
 
 [X-Twitter.patches]
 "github:crimera/piko" = ["Browse tweet object", "Dynamic color"]
-"gitlab:inotia00/x-shim" = []
 
 [Instagram]
 enabled = true
