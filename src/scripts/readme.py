@@ -195,7 +195,23 @@ def _source_badge(brand: str, url: str | None) -> str:
     return f"[{badge}]({url})" if url else badge
 
 
+_ICONS_DIR = Path("images/icons")
+_ICON_EXTS = (".png", ".jpg", ".webp")
+
+
+def _local_icon_path(table: str) -> Path | None:
+    for ext in _ICON_EXTS:
+        path = _ICONS_DIR / f"{table}{ext}"
+        if path.exists():
+            return path
+    return None
+
+
 def _app_icon(table: str) -> str:
+    # Real Play Store icons (fetched by src/scripts/banner.py) take priority
+    # over the generic Simple Icons brand logo / emoji fallback.
+    if path := _local_icon_path(table):
+        return f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
     if brand_icon := BRAND_ICONS.get(table):
         slug, _ = brand_icon
         return f'<img src="https://cdn.simpleicons.org/{slug}" width="20" height="20" alt="">'
