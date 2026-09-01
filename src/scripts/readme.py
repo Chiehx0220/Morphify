@@ -326,17 +326,16 @@ def _build_table() -> str:
             "",
             '<div align="center">',
             "",
-            '<table width="100%">',
-            "<thead><tr><th></th><th>App</th><th>Source</th><th>Download</th><th></th></tr></thead>",
-            "<tbody>",
+            "| | App | Source | Download | |",
+            "|:---:|---|---|:---:|---|",
         ]
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             icon = _app_icon(table)
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
             obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"<tr><td>{icon}</td><td>{app_name}</td><td>{source}</td><td>{download}</td><td>{obtainium}</td></tr>")
-        lines += ["</tbody>", "</table>", "", "</div>", "", "</details>"]
+            lines.append(f"| {icon} | {app_name} | {source} | {download} | {obtainium} |")
+        lines += ["", "</div>", "", "</details>"]
     return "\n".join(lines)
 
 
