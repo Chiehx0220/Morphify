@@ -39,6 +39,7 @@ PKG_NAMES = {
     "SketchBook": "com.adsk.sketchbook",
     "AccuWeather": "com.accuweather.android",
     "PictureThis": "cn.danatech.xingseus",
+    "Mimo": "com.getmimo",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -65,6 +66,7 @@ CATEGORIES = {
     "SketchBook": "🎨",
     "AccuWeather": "🌦️",
     "PictureThis": "🌿",
+    "Mimo": "💻",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
