@@ -24,7 +24,7 @@ PKG_NAMES = {
     "X-Twitter": "com.twitter.android",
     "Instagram": "com.instagram.android",
     "Niagara-Launcher": "bitpit.launcher",
-    "Proton-Mail_rushi": "ch.protonmail.android",
+    "Proton-Mail_hxreborn": "ch.protonmail.android",
     "Projectivy-Launcher": "com.spocky.projengmenu",
     "KineStop": "com.urbandroid.kinestop",
     "Facebook": "com.facebook.katana",
@@ -34,6 +34,18 @@ PKG_NAMES = {
     "Duolingo": "com.duolingo",
     "TikTok_icysymmetra": "com.zhiliaoapp.musically",
     "Messenger": "app.morphe.messenger.orca",
+    "Twitch": "tv.twitch.android.app",
+    "IMDb": "com.imdb.mobile",
+    "SketchBook": "com.adsk.sketchbook",
+    "AccuWeather": "com.accuweather.android",
+    "PictureThis": "cn.danatech.xingseus",
+    "Mimo": "com.getmimo",
+    "Sleep-as-Android": "com.urbandroid.sleep",
+    "Battery-Guru": "com.paget96.batteryguru",
+    "Parallel-Space-Pro": "com.parallel.space.pro",
+    "AccuBattery": "com.digibites.accubattery",
+    "Athena": "com.kin.athena",
+    "Proton-Pass": "proton.android.pass",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -47,7 +59,7 @@ CATEGORIES = {
     "Facebook": "📘",
     "LINE": "💬",
     "Gboard": "⌨️",
-    "Proton-Mail_rushi": "📧",
+    "Proton-Mail_hxreborn": "📧",
     "Niagara-Launcher": "🚀",
     "Projectivy-Launcher": "🚀",
     "KineStop": "🏃",
@@ -55,6 +67,18 @@ CATEGORIES = {
     "Duolingo": "🦉",
     "TikTok_icysymmetra": "🎶",
     "Messenger": "📩",
+    "Twitch": "🎮",
+    "IMDb": "🎬",
+    "SketchBook": "🎨",
+    "AccuWeather": "🌦️",
+    "PictureThis": "🌿",
+    "Mimo": "💻",
+    "Sleep-as-Android": "😴",
+    "Battery-Guru": "🔋",
+    "Parallel-Space-Pro": "🪞",
+    "AccuBattery": "🔌",
+    "Athena": "🛡️",
+    "Proton-Pass": "🔑",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -68,11 +92,14 @@ BRAND_ICONS = {
     "Instagram": ("instagram", "E4405F"),
     "Facebook": ("facebook", "1877F2"),
     "LINE": ("line", "00C300"),
-    "Proton-Mail_rushi": ("protonmail", "6D4AFF"),
+    "Proton-Mail_hxreborn": ("protonmail", "6D4AFF"),
     "Google-Photos": ("googlephotos", "FBBC04"),
     "Duolingo": ("duolingo", "58CC02"),
     "TikTok_icysymmetra": ("tiktok", "000000"),
     "Messenger": ("messenger", "0084FF"),
+    "Twitch": ("twitch", "9146FF"),
+    "IMDb": ("imdb", "F5C518"),
+    "AccuWeather": ("accuweather", "EF4023"),
 }
 
 

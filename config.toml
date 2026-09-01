@@ -229,7 +229,7 @@ changelog-keywords = ["Prime Video"]
 "github:hoo-dles/morphe-patches" = []
 
 [Sleep-as-Android]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/urbandroid-team/sleep-as-android-sleep-cycle-tracker-smart-alarm/"
 changelog-keywords = ["Sleep"]
@@ -449,7 +449,7 @@ changelog-keywords = ["1.1.1"]
 "github:rushiranpise/morphe-patches" = []
 
 [AccuWeather]
-enabled = false
+enabled = true
 brand = "rushi"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/accuweather/accuweather/"
 changelog-keywords = ["AccuWeather"]
@@ -530,7 +530,7 @@ changelog-keywords = ["Photo Editor"]
 "github:rushiranpise/morphe-patches" = []
 
 [Proton-Mail_rushi]
-enabled = true
+enabled = false
 brand = "rushi"
 app-name = "Proton Mail"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
@@ -622,7 +622,7 @@ changelog-keywords = ["Windscribe"]
 "github:rushiranpise/morphe-patches" = []
 
 [Proton-Mail_hxreborn]
-enabled = false
+enabled = true
 brand = "hxreborn"
 app-name = "Proton Mail"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/"
@@ -724,13 +724,13 @@ changelog-keywords = ["Tumblr"]
 "github:arandomhooman/hoomans-morphe-patches" = []
 
 [Twitch]
-enabled = false
-brand = "hooman"
+enabled = true
+brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 changelog-keywords = ["Twitch"]
 
 [Twitch.patches]
-"github:arandomhooman/hoomans-morphe-patches" = []
+"github:RookieEnough/De-Vanced" = []
 
 [WEBTOON]
 enabled = false
@@ -941,4 +941,76 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/viber-media-s-a-r-l/viber/"
 
 [Viber.patches]
 "github:RookieEnough/De-Vanced" = []
+
+[IMDb]
+enabled = true
+brand = "jkennethcarino"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/imdb/imdb-imdb/"
+
+[IMDb.patches]
+"github:jkennethcarino/adobo" = []
+
+[SketchBook]
+enabled = true
+brand = "kiraio-moe"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/sketchbook/sketchbook-draw-and-paint/"
+
+[SketchBook.patches]
+"github:kiraio-moe/Lain-Patches" = []
+
+[PictureThis]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/glority-llc/picturethis-plant-identification/"
+
+[PictureThis.patches]
+"github:rushiranpise/morphe-patches" = []
+
+[Mimo]
+enabled = true
+brand = "hoo-dles"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/mimohello-gmbh/mimo-learn-to-code/"
+
+[Mimo.patches]
+"github:hoo-dles/morphe-patches" = []
+
+[Battery-Guru]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/paget96/battery-guru-health-saver/"
+
+[Battery-Guru.patches]
+"github:rushiranpise/morphe-patches" = []
+
+[Parallel-Space-Pro]
+enabled = true
+brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.parallel.space.pro"
+
+[Parallel-Space-Pro.patches]
+"github:rushiranpise/morphe-patches" = []
+
+[AccuBattery]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
+
+[AccuBattery.patches]
+"github:rushiranpise/morphe-patches" = []
+
+[Athena]
+enabled = true
+brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.kin.athena"
+
+[Athena.patches]
+"github:rushiranpise/morphe-patches" = []
+
+[Proton-Pass]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/proton-pass-password-manager/"
+
+[Proton-Pass.patches]
+"github:rushiranpise/morphe-patches" = []
 
