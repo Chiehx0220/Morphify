@@ -210,7 +210,11 @@ def _app_icon(table: str) -> str:
     # take priority over the generic Simple Icons brand logo / emoji fallback.
     path = _ICONS_DIR / f"{table}.png"
     if path.exists():
-        img = f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
+        # No width/height attributes: the file is already baked down to its
+        # display size (see banner.py's _TABLE_ICON_SIZE) so GitHub's markdown
+        # renderer never gets a chance to inject the max-height inline style
+        # that collapses to 0-width inside a table cell on mobile.
+        img = f'<img src="{path.as_posix()}" alt="">'
         if store_url := _icon_manifest().get(table):
             return f'<a href="{store_url}" target="_blank" rel="noopener noreferrer">{img}</a>'
         return img
@@ -324,15 +328,22 @@ def _build_table() -> str:
             "<details open>",
             "<summary>Show / hide</summary>",
             "",
-            "| | App | Source | Download | |",
-            "|:---:|---|---|:---:|---|",
         ]
+        # GitHub's mobile table renderer has two separate bugs that a <table>
+        # can't dodge: an empty-header edge column collapses its <img> to 0
+        # width, and even a plain <table>/<td> pair breaks normal inline text
+        # flow badly enough that a literal nbsp between an image and the text
+        # after it still gets a line wrap forced in. A plain bullet list has
+        # neither problem, since it never enters GitHub's table layout path.
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             icon = _app_icon(table)
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
-            obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"| {icon} | {app_name} | {source} | {download} | {obtainium} |")
+            obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+            # nbsp alone isn't enough: GitHub mobile still lets an inline <img>
+            # break away from adjacent text. Wrapping icon+name in a single
+            # white-space:nowrap span is what actually keeps them glued.
+            lines.append(f'- <span style="white-space:nowrap">{icon}&nbsp;**{app_name}**</span> — {source} {download}{obtainium}')
         lines += ["", "</details>"]
     return "\n".join(lines)
 
