@@ -40,6 +40,7 @@ PKG_NAMES = {
     "AccuWeather": "com.accuweather.android",
     "PictureThis": "cn.danatech.xingseus",
     "Mimo": "com.getmimo",
+    "Sleep-as-Android": "com.urbandroid.sleep",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -67,6 +68,7 @@ CATEGORIES = {
     "AccuWeather": "🌦️",
     "PictureThis": "🌿",
     "Mimo": "💻",
+    "Sleep-as-Android": "😴",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for

@@ -229,7 +229,7 @@ changelog-keywords = ["Prime Video"]
 "github:hoo-dles/morphe-patches" = []
 
 [Sleep-as-Android]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/urbandroid-team/sleep-as-android-sleep-cycle-tracker-smart-alarm/"
 changelog-keywords = ["Sleep"]
