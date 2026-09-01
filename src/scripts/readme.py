@@ -328,15 +328,20 @@ def _build_table() -> str:
             "<details open>",
             "<summary>Show / hide</summary>",
             "",
-            "| | App | Source | Download | |",
-            "|:---:|---|---|:---:|---|",
+            "| App | Source | Download |",
+            "|---|---|:---:|",
         ]
+        # Icon lives inside the App cell (not its own column) and the Obtainium
+        # badge stacks under Download: a leading/trailing column with an empty
+        # header collapses its <img> to 0 width in GitHub's mobile table
+        # renderer, and folding them into a real, non-empty-header column
+        # sidesteps that entirely.
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             icon = _app_icon(table)
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
-            obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"| {icon} | {app_name} | {source} | {download} | {obtainium} |")
+            obtainium = f"<br>[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+            lines.append(f"| {icon} **{app_name}** | {source} | {download}{obtainium} |")
         lines += ["", "</details>"]
     return "\n".join(lines)
 
