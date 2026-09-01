@@ -840,15 +840,15 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/letterboxd/letterboxd/"
 "github:RookieEnough/De-Vanced" = []
 
 [Messenger]
-enabled = false
-brand = "de-vanced"
+enabled = true
+brand = "rushi"
 github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.orca"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-technologies-llc/messenger/"
 # uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
 arch = "both"
 
 [Messenger.patches]
-"github:RookieEnough/De-Vanced" = []
+"github:rushiranpise/morphe-patches" = []
 
 [Nothing-X]
 enabled = false

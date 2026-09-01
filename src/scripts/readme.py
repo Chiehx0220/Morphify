@@ -33,6 +33,7 @@ PKG_NAMES = {
     "Google-Photos": "app.morphe.android.apps.photos",
     "Duolingo": "com.duolingo",
     "TikTok_icysymmetra": "com.zhiliaoapp.musically",
+    "Messenger": "app.morphe.messenger.orca",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -53,6 +54,7 @@ CATEGORIES = {
     "Google-Photos": "📷",
     "Duolingo": "🦉",
     "TikTok_icysymmetra": "🎶",
+    "Messenger": "📩",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -70,6 +72,7 @@ BRAND_ICONS = {
     "Google-Photos": ("googlephotos", "FBBC04"),
     "Duolingo": ("duolingo", "58CC02"),
     "TikTok_icysymmetra": ("tiktok", "000000"),
+    "Messenger": ("messenger", "0084FF"),
 }
 
 
