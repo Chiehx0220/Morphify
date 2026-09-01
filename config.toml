@@ -112,7 +112,7 @@ changelog-keywords = ["CamScanner"]
 "github:hoo-dles/morphe-patches" = []
 
 [Duolingo]
-enabled = false
+enabled = true
 brand = "hoo-dles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/"
 changelog-keywords = ["Duolingo"]

@@ -31,6 +31,7 @@ PKG_NAMES = {
     "Gboard": "dev.jason.com.google.android.inputmethod.latin",
     "LINE": "jp.naver.line.android",
     "Google-Photos": "app.morphe.android.apps.photos",
+    "Duolingo": "com.duolingo",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -49,6 +50,7 @@ CATEGORIES = {
     "Projectivy-Launcher": "🚀",
     "KineStop": "🏃",
     "Google-Photos": "📷",
+    "Duolingo": "🦉",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -64,6 +66,7 @@ BRAND_ICONS = {
     "LINE": ("line", "00C300"),
     "Proton-Mail_rushi": ("protonmail", "6D4AFF"),
     "Google-Photos": ("googlephotos", "FBBC04"),
+    "Duolingo": ("duolingo", "58CC02"),
 }
 
 
