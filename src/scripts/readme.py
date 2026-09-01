@@ -110,6 +110,63 @@ BRAND_ICONS = {
     "AccuWeather": ("accuweather", "EF4023"),
 }
 
+# Display order for the grouped README table; apps not listed here fall
+# into an "Other" group appended at the end.
+CATEGORY_ORDER = [
+    "Media & Entertainment",
+    "Social & Messaging",
+    "Privacy & Security",
+    "Utilities",
+    "Education",
+    "Creativity",
+    "Launchers",
+]
+
+CATEGORY_ICONS = {
+    "Media & Entertainment": "🎬",
+    "Social & Messaging": "💬",
+    "Privacy & Security": "🔒",
+    "Utilities": "🛠️",
+    "Education": "📚",
+    "Creativity": "🎨",
+    "Launchers": "🚀",
+    "Other": "📦",
+}
+
+CATEGORY_GROUP = {
+    "YouTube": "Media & Entertainment",
+    "YT-Music": "Media & Entertainment",
+    "SoundCloud": "Media & Entertainment",
+    "IMDb": "Media & Entertainment",
+    "Twitch": "Media & Entertainment",
+    "CrazyGames": "Media & Entertainment",
+    "Google-Photos": "Media & Entertainment",
+    "Instagram": "Social & Messaging",
+    "Facebook": "Social & Messaging",
+    "Messenger": "Social & Messaging",
+    "X-Twitter": "Social & Messaging",
+    "LINE": "Social & Messaging",
+    "KakaoTalk": "Social & Messaging",
+    "Reddit": "Social & Messaging",
+    "TikTok_icysymmetra": "Social & Messaging",
+    "Proton-Mail_hxreborn": "Privacy & Security",
+    "Proton-Pass": "Privacy & Security",
+    "Athena": "Privacy & Security",
+    "SD-Maid-SE": "Privacy & Security",
+    "Gboard": "Utilities",
+    "AccuBattery": "Utilities",
+    "AccuWeather": "Utilities",
+    "Sleep-as-Android": "Utilities",
+    "Parallel-Space-Pro": "Utilities",
+    "KineStop": "Utilities",
+    "Duolingo": "Education",
+    "Mimo": "Education",
+    "SketchBook": "Creativity",
+    "PictureThis": "Creativity",
+    "Niagara-Launcher": "Launchers",
+    "Projectivy-Launcher": "Launchers",
+}
+
 
 def _load_entries() -> list:
     data = load_toml(CONFIG_PATH)
@@ -212,21 +269,31 @@ def _build_table() -> str:
     )
     brand_count = len({brand for _, brand, _, _, _ in rows})
 
+    groups: dict[str, list[tuple]] = {}
+    for row in rows:
+        groups.setdefault(CATEGORY_GROUP.get(row[0], "Other"), []).append(row)
+    order = [c for c in (*CATEGORY_ORDER, "Other") if c in groups]
+
     lines = [
         '<div align="center">',
         "",
         f"![Apps](https://img.shields.io/badge/apps-{len(rows)}-4c9c4c?style=flat-square)"
         f" ![Sources](https://img.shields.io/badge/sources-{brand_count}-4c72c9?style=flat-square)",
-        "",
-        "| | App | Download | Source | |",
-        "|:---:|---|:---:|---|---|",
     ]
-    for table, brand, app_name, patches_url, ob_link in rows:
-        icon = _app_icon(table)
-        download = _download_badge(table)
-        source = _source_badge(brand, patches_url)
-        obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-        lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
+    for category in order:
+        lines += [
+            "",
+            f"#### {CATEGORY_ICONS.get(category, '📦')} {category}",
+            "",
+            "| | App | Download | Source | |",
+            "|:---:|---|:---:|---|---|",
+        ]
+        for table, brand, app_name, patches_url, ob_link in groups[category]:
+            icon = _app_icon(table)
+            download = _download_badge(table)
+            source = _source_badge(brand, patches_url)
+            obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+            lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
     lines += ["", "</div>"]
     return "\n".join(lines)
 
