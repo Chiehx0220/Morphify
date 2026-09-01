@@ -111,6 +111,11 @@ def _extract_base_apk(apkm: Path, pkg_name: str, dest_dir: Path) -> Path:
             if name in names:
                 zf.extract(name, dest_dir)
                 return dest_dir / name
+
+        candidates = [n for n in names if n.endswith(".apk") and not n.startswith("split_config.")]
+        if len(candidates) == 1:
+            zf.extract(candidates[0], dest_dir)
+            return dest_dir / candidates[0]
     raise BuilderError(f"Neither 'base.apk' nor '{pkg_name}.apk' found inside {apkm.name}")
 
 def _verify_sig(dl_result: DownloadResult, pkg_name: str, patcher: PatcherCLI, table: str, skip_sigcheck: bool, strict_sigcheck: bool) -> None:
