@@ -34,6 +34,7 @@ PKG_NAMES = {
     "Duolingo": "com.duolingo",
     "TikTok_icysymmetra": "com.zhiliaoapp.musically",
     "Messenger": "app.morphe.messenger.orca",
+    "Twitch": "tv.twitch.android.app",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -55,6 +56,7 @@ CATEGORIES = {
     "Duolingo": "🦉",
     "TikTok_icysymmetra": "🎶",
     "Messenger": "📩",
+    "Twitch": "🎮",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
@@ -73,6 +75,7 @@ BRAND_ICONS = {
     "Duolingo": ("duolingo", "58CC02"),
     "TikTok_icysymmetra": ("tiktok", "000000"),
     "Messenger": ("messenger", "0084FF"),
+    "Twitch": ("twitch", "9146FF"),
 }
 
 

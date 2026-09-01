@@ -724,13 +724,13 @@ changelog-keywords = ["Tumblr"]
 "github:arandomhooman/hoomans-morphe-patches" = []
 
 [Twitch]
-enabled = false
-brand = "hooman"
+enabled = true
+brand = "de-vanced"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 changelog-keywords = ["Twitch"]
 
 [Twitch.patches]
-"github:arandomhooman/hoomans-morphe-patches" = []
+"github:RookieEnough/De-Vanced" = []
 
 [WEBTOON]
 enabled = false
