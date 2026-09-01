@@ -958,3 +958,11 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/sketchbook/sketchbook-draw-and-
 [SketchBook.patches]
 "github:kiraio-moe/Lain-Patches" = []
 
+[PictureThis]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/glority-llc/picturethis-plant-identification/"
+
+[PictureThis.patches]
+"github:rushiranpise/morphe-patches" = []
+

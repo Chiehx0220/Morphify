@@ -38,6 +38,7 @@ PKG_NAMES = {
     "IMDb": "com.imdb.mobile",
     "SketchBook": "com.adsk.sketchbook",
     "AccuWeather": "com.accuweather.android",
+    "PictureThis": "cn.danatech.xingseus",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -63,6 +64,7 @@ CATEGORIES = {
     "IMDb": "🎬",
     "SketchBook": "🎨",
     "AccuWeather": "🌦️",
+    "PictureThis": "🌿",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
