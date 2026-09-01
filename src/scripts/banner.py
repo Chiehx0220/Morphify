@@ -61,7 +61,7 @@ def _collect_icons() -> list[tuple[str, str]]:
     return icons
 
 
-def _build_row(items: list[tuple[str, str]], direction: str, y_offset: int, dur: int) -> str:
+def _build_row(items: list[tuple[str, str]], direction: str) -> tuple[str, int]:
     seq = items + items
     total_w = _STEP * len(items)
     g_items = []
@@ -74,26 +74,33 @@ def _build_row(items: list[tuple[str, str]], direction: str, y_offset: int, dur:
             f'<image href="{uri}" x="0" y="0" width="{_SIZE}" height="{_SIZE}" clip-path="url(#{clip_id})" preserveAspectRatio="xMidYMid slice"/>'
             f"<title>{name}</title></g>"
         )
-    anim_from = "0" if direction == "left" else f"-{total_w}"
-    anim_to = f"-{total_w}" if direction == "left" else "0"
-    return (
-        f'<g class="row" style="transform:translateY({y_offset}px)">'
-        f'<animateTransform attributeName="transform" type="translate" from="{anim_from} {y_offset}" to="{anim_to} {y_offset}" dur="{dur}s" repeatCount="indefinite"/>'
-        + "".join(g_items)
-        + "</g>"
-    )
+    return f'<g class="row row-{direction}">' + "".join(g_items) + "</g>", total_w
 
 
 def _build_svg(icons: list[tuple[str, str]]) -> str:
     half = len(icons) // 2 + 1
     row1, row2 = icons[:half], icons[half:] or icons[:1]
     canvas_w, canvas_h = 900, _ROW_H * 2
+    row1_svg, row1_w = _build_row(row1, "left")
+    row2_svg, row2_w = _build_row(row2, "right")
+
+    # CSS @keyframes, not SMIL <animateTransform> — SMIL animation support is
+    # inconsistent for SVGs loaded via <img>, CSS animation is reliable there.
+    style = (
+        "<style>"
+        f"@keyframes scrollLeft{{from{{transform:translate(0px,4px)}}to{{transform:translate(-{row1_w}px,4px)}}}}"
+        f"@keyframes scrollRight{{from{{transform:translate(-{row2_w}px,{_ROW_H + 4}px)}}to{{transform:translate(0px,{_ROW_H + 4}px)}}}}"
+        ".row-left{animation:scrollLeft 26s linear infinite}"
+        ".row-right{animation:scrollRight 32s linear infinite}"
+        "</style>"
+    )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {canvas_w} {canvas_h}" width="100%" height="{canvas_h}">\n'
+        f"{style}\n"
         f'<defs><clipPath id="clip"><rect x="0" y="0" width="{canvas_w}" height="{canvas_h}" rx="12"/></clipPath></defs>\n'
         f'<g clip-path="url(#clip)">\n'
-        f"{_build_row(row1, 'left', 4, 26)}\n"
-        f"{_build_row(row2, 'right', _ROW_H + 4, 32)}\n"
+        f"{row1_svg}\n"
+        f"{row2_svg}\n"
         f"</g>\n</svg>\n"
     )
 
