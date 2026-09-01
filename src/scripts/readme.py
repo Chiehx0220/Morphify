@@ -196,22 +196,24 @@ def _source_badge(brand: str, url: str | None) -> str:
 
 
 _ICONS_DIR = Path("images/icons")
-_ICON_EXTS = (".png", ".jpg", ".webp")
+_ICON_MANIFEST_PATH = _ICONS_DIR / "manifest.json"
 
 
-def _local_icon_path(table: str) -> Path | None:
-    for ext in _ICON_EXTS:
-        path = _ICONS_DIR / f"{table}{ext}"
-        if path.exists():
-            return path
-    return None
+def _icon_manifest() -> dict[str, str]:
+    if not _ICON_MANIFEST_PATH.exists():
+        return {}
+    return json.loads(_ICON_MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
 def _app_icon(table: str) -> str:
-    # Real Play Store icons (fetched by src/scripts/banner.py) take priority
-    # over the generic Simple Icons brand logo / emoji fallback.
-    if path := _local_icon_path(table):
-        return f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
+    # Real, circle-cropped Play Store icons (fetched by src/scripts/banner.py)
+    # take priority over the generic Simple Icons brand logo / emoji fallback.
+    path = _ICONS_DIR / f"{table}.png"
+    if path.exists():
+        img = f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
+        if store_url := _icon_manifest().get(table):
+            return f'<a href="{store_url}" target="_blank" rel="noopener noreferrer">{img}</a>'
+        return img
     if brand_icon := BRAND_ICONS.get(table):
         slug, _ = brand_icon
         return f'<img src="https://cdn.simpleicons.org/{slug}" width="20" height="20" alt="">'
@@ -315,23 +317,26 @@ def _build_table() -> str:
             "",
             '<div align="center">',
             "",
-            f'<h3 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} <sub>({len(groups[category])})</sub></h3>',
+            f'<h3 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} ({len(groups[category])})</h3>',
             "",
             "</div>",
             "",
             "<details open>",
             "<summary>Show / hide</summary>",
             "",
-            "| | App | Download | Source | |",
-            "|:---:|---|:---:|---|---|",
+            '<div align="center">',
+            "",
+            '<table width="100%">',
+            "<thead><tr><th></th><th>App</th><th>Source</th><th>Download</th><th></th></tr></thead>",
+            "<tbody>",
         ]
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             icon = _app_icon(table)
             download = _download_badge(table)
             source = _source_badge(brand, patches_url)
             obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            lines.append(f"| {icon} | {app_name} | {download} | {source} | {obtainium} |")
-        lines += ["", "</details>"]
+            lines.append(f"<tr><td>{icon}</td><td>{app_name}</td><td>{source}</td><td>{download}</td><td>{obtainium}</td></tr>")
+        lines += ["</tbody>", "</table>", "", "</div>", "", "</details>"]
     return "\n".join(lines)
 
 
