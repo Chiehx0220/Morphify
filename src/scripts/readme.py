@@ -324,8 +324,6 @@ def _build_table() -> str:
             "<details open>",
             "<summary>Show / hide</summary>",
             "",
-            '<div align="center">',
-            "",
             "| | App | Source | Download | |",
             "|:---:|---|---|:---:|---|",
         ]
@@ -335,7 +333,7 @@ def _build_table() -> str:
             source = _source_badge(brand, patches_url)
             obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
             lines.append(f"| {icon} | {app_name} | {source} | {download} | {obtainium} |")
-        lines += ["", "</div>", "", "</details>"]
+        lines += ["", "</details>"]
     return "\n".join(lines)
 
 
