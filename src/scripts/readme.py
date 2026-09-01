@@ -33,7 +33,8 @@ PKG_NAMES = {
     "Google-Photos": "app.morphe.android.apps.photos",
 }
 
-# Purely cosmetic — a per-app icon for the README table's "Type" column.
+# Fallback icon for the README table's icon column, when an app has no
+# real brand icon on Simple Icons (see BRAND_ICONS below).
 CATEGORIES = {
     "YouTube": "🎥",
     "YT-Music": "🎵",
@@ -48,6 +49,21 @@ CATEGORIES = {
     "Projectivy-Launcher": "🚀",
     "KineStop": "🏃",
     "Google-Photos": "📷",
+}
+
+# Real per-app brand icon (Simple Icons slug) + official brand color, used for
+# the icon column and the Download badge. Apps without a Simple Icons entry
+# fall back to CATEGORIES / a generic grey badge.
+BRAND_ICONS = {
+    "YouTube": ("youtube", "FF0000"),
+    "YT-Music": ("youtubemusic", "FF0000"),
+    "Reddit": ("reddit", "FF4500"),
+    "X-Twitter": ("x", "000000"),
+    "Instagram": ("instagram", "E4405F"),
+    "Facebook": ("facebook", "1877F2"),
+    "LINE": ("line", "00C300"),
+    "Proton-Mail_rushi": ("protonmail", "6D4AFF"),
+    "Google-Photos": ("googlephotos", "FBBC04"),
 }
 
 
@@ -77,8 +93,16 @@ def _source_badge(brand: str, url: str | None) -> str:
     return f"[{badge}]({url})" if url else badge
 
 
+def _app_icon(table: str) -> str:
+    if brand_icon := BRAND_ICONS.get(table):
+        slug, _ = brand_icon
+        return f'<img src="https://cdn.simpleicons.org/{slug}" width="20" height="20" alt="">'
+    return CATEGORIES.get(table, "📦")
+
+
 def _download_badge(table: str) -> str:
-    badge = "![Download](https://img.shields.io/badge/Download-4c72c9?style=flat-square&logo=github&logoColor=white)"
+    slug, color = BRAND_ICONS.get(table, ("github", "4c72c9"))
+    badge = f"![Download](https://img.shields.io/badge/Download-{color}?style=flat-square&logo={slug}&logoColor=white)"
     return f"[{badge}]({REPO_URL}/releases?q={quote(table)}&expanded=true)"
 
 
@@ -154,7 +178,7 @@ def _build_table() -> str:
         "|:---:|---|:---:|---|---|",
     ]
     for table, brand, app_name, patches_url, ob_link in rows:
-        icon = CATEGORIES.get(table, "📦")
+        icon = _app_icon(table)
         download = _download_badge(table)
         source = _source_badge(brand, patches_url)
         obtainium = f"[![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
