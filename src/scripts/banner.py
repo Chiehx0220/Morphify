@@ -33,6 +33,14 @@ _GAP = 24
 _STEP = _SIZE + _GAP
 _ROW_H = 84
 
+# GitHub's markdown renderer rewrites an <img>'s width/height HTML attributes
+# into an inline `height:auto;max-height:{N}px` style, which computes to a
+# 0-width box on mobile when the image sits inside a table cell (Chrome
+# anonymous-table-object sizing bug). Shipping the table icon file already
+# baked down to its display size sidesteps that entirely: no width/height
+# attribute is needed on the <img> tag at all.
+_TABLE_ICON_SIZE = 24
+
 
 def _fetch_icon(pkg: str) -> bytes | None:
     url = f"https://play.google.com/store/apps/details?id={pkg}"
@@ -85,7 +93,7 @@ def _write_icon_files(icons: list[tuple[str, str, str, Image.Image]]) -> None:
     kept = {"manifest.json"}
     for table, _, url, img in icons:
         path = ICONS_DIR / f"{table}.png"
-        img.save(path)
+        img.resize((_TABLE_ICON_SIZE, _TABLE_ICON_SIZE)).save(path)
         kept.add(path.name)
         manifest[table] = url
     for stale in ICONS_DIR.iterdir():

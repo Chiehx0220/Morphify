@@ -210,7 +210,11 @@ def _app_icon(table: str) -> str:
     # take priority over the generic Simple Icons brand logo / emoji fallback.
     path = _ICONS_DIR / f"{table}.png"
     if path.exists():
-        img = f'<img src="{path.as_posix()}" width="20" height="20" alt="">'
+        # No width/height attributes: the file is already baked down to its
+        # display size (see banner.py's _TABLE_ICON_SIZE) so GitHub's markdown
+        # renderer never gets a chance to inject the max-height inline style
+        # that collapses to 0-width inside a table cell on mobile.
+        img = f'<img src="{path.as_posix()}" alt="">'
         if store_url := _icon_manifest().get(table):
             return f'<a href="{store_url}" target="_blank" rel="noopener noreferrer">{img}</a>'
         return img
