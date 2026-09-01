@@ -99,26 +99,38 @@ def _download_apk(entry: AppEntry, version: str, arch: str, pkg_name: str, scrap
         url = entry.dl_urls[src]
         pr(f"Downloading '{entry.table}' from '{src}'")
         try:
-            return scrapers[src].download(url, version, stock_apk, arch, entry.dpi, version_code=version_code)
+            result = scrapers[src].download(url, version, stock_apk, arch, entry.dpi, version_code=version_code)
         except (NetworkError, ScraperError) as exc:
             epr(f"Failed to fetch '{entry.table}' from '{src}' (version='{version}', arch='{arch}'): {exc}")
+            continue
+
+        if result.is_bundle:
+            with zipfile.ZipFile(result.path, "r") as zf:
+                if _bundle_apk_name(zf, pkg_name) is None:
+                    epr(f"Bundle for '{entry.table}' from '{src}' has no usable base APK, trying next source")
+                    result.path.unlink(missing_ok=True)
+                    continue
+        return result
     raise BuilderError("Stock APK not found")
+
+def _bundle_apk_name(zf: zipfile.ZipFile, pkg_name: str) -> str | None:
+    names = zf.NameToInfo
+    for name in ("base.apk", f"{pkg_name}.apk"):
+        if name in names:
+            return name
+
+    candidates = [n for n in names if n.endswith(".apk") and not n.startswith("split_config.")]
+    return candidates[0] if len(candidates) == 1 else None
 
 def _extract_base_apk(apkm: Path, pkg_name: str, dest_dir: Path) -> Path:
     with zipfile.ZipFile(apkm, "r") as zf:
-        names = zf.NameToInfo
-        for name in ("base.apk", f"{pkg_name}.apk"):
-            if name in names:
-                zf.extract(name, dest_dir)
-                return dest_dir / name
+        name = _bundle_apk_name(zf, pkg_name)
+        if name is None:
+            contents = ", ".join(sorted(zf.NameToInfo)) or "(empty)"
+            raise BuilderError(f"Neither 'base.apk' nor '{pkg_name}.apk' found inside {apkm.name}; contents: {contents}")
 
-        candidates = [n for n in names if n.endswith(".apk") and not n.startswith("split_config.")]
-        if len(candidates) == 1:
-            zf.extract(candidates[0], dest_dir)
-            return dest_dir / candidates[0]
-
-        contents = ", ".join(sorted(names)) or "(empty)"
-    raise BuilderError(f"Neither 'base.apk' nor '{pkg_name}.apk' found inside {apkm.name}; contents: {contents}")
+        zf.extract(name, dest_dir)
+        return dest_dir / name
 
 def _verify_sig(dl_result: DownloadResult, pkg_name: str, patcher: PatcherCLI, table: str, skip_sigcheck: bool, strict_sigcheck: bool) -> None:
     if skip_sigcheck:

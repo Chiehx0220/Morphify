@@ -726,6 +726,7 @@ changelog-keywords = ["Tumblr"]
 [Twitch]
 enabled = true
 brand = "de-vanced"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/tv.twitch.android.app"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 changelog-keywords = ["Twitch"]
 
@@ -768,7 +769,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/disney/disney/"
 [Facebook]
 enabled = true
 brand = "de-vanced"
-github-dlurl = "https://github.com/nvbangg/builder-for-morphe/releases/tag/com.facebook.katana"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.facebook.katana"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
 arch = "both"
 
@@ -983,6 +984,7 @@ github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/co
 [AccuBattery]
 enabled = true
 brand = "rushi"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.digibites.accubattery"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
 
 [AccuBattery.patches]
@@ -1024,6 +1026,8 @@ arch = "arm64-v8a"
 [KakaoTalk]
 enabled = true
 brand = "AmpleReVanced"
+arch = "arm64-v8a"
+github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.kakao.talk"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/kakao-corp/kakaotalk/"
 
 [KakaoTalk.patches]
