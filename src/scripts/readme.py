@@ -45,6 +45,7 @@ PKG_NAMES = {
     "AccuBattery": "com.digibites.accubattery",
     "Athena": "com.kin.athena",
     "Proton-Pass": "proton.android.pass",
+    "SD-Maid-SE": "eu.darken.sdmse",
 }
 
 # Fallback icon for the README table's icon column, when an app has no
@@ -77,6 +78,7 @@ CATEGORIES = {
     "AccuBattery": "🔌",
     "Athena": "🛡️",
     "Proton-Pass": "🔑",
+    "SD-Maid-SE": "🧹",
 }
 
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for

@@ -1006,3 +1006,11 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/proton-p
 [Proton-Pass.patches]
 "github:rushiranpise/morphe-patches" = []
 
+[SD-Maid-SE]
+enabled = true
+brand = "rushi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/darken/sd-maid-2-se-system-cleaner-github-version/"
+
+[SD-Maid-SE.patches]
+"github:rushiranpise/morphe-patches" = []
+
