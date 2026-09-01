@@ -33,7 +33,7 @@
 
 <h4 id="media-entertainment">🎬 Media & Entertainment <sub>(7)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -50,7 +50,7 @@
 
 <h4 id="social-messaging">💬 Social & Messaging <sub>(8)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -68,7 +68,7 @@
 
 <h4 id="privacy-security">🔒 Privacy & Security <sub>(4)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -82,7 +82,7 @@
 
 <h4 id="utilities">🛠️ Utilities <sub>(6)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -98,7 +98,7 @@
 
 <h4 id="education">📚 Education <sub>(2)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -110,7 +110,7 @@
 
 <h4 id="creativity">🎨 Creativity <sub>(2)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |
@@ -122,7 +122,7 @@
 
 <h4 id="launchers">🚀 Launchers <sub>(2)</sub></h4>
 
-<details>
+<details open>
 <summary>Show / hide</summary>
 
 | | App | Download | Source | |

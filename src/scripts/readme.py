@@ -297,7 +297,7 @@ def _build_table() -> str:
             "",
             f'<h4 id="{anchor}">{CATEGORY_ICONS.get(category, "📦")} {category} <sub>({len(groups[category])})</sub></h4>',
             "",
-            "<details>",
+            "<details open>",
             "<summary>Show / hide</summary>",
             "",
             "| | App | Download | Source | |",
