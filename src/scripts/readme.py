@@ -300,11 +300,15 @@ def _build_table() -> str:
     ]
     # GitHub prefixes hand-written heading `id`s with "user-content-" to avoid
     # colliding with its own page ids, so the anchor links must match that.
-    navlinks = [
-        f"[{CATEGORY_ICONS.get(c, '📦')}&nbsp;![{c}](https://img.shields.io/badge/{_badge_text(c)}-{len(groups[c])}-{CATEGORY_COLORS.get(c, '8D6E63')}?style=flat-square)]"
-        f"(#user-content-{_slugify(c)})"
-        for c in order
-    ]
+    # The emoji is baked into the badge image itself (rather than sitting next to
+    # it as link text) so GitHub doesn't underline it and it renders at badge scale.
+    navlinks = []
+    for c in order:
+        icon = CATEGORY_ICONS.get(c, "📦")
+        label = quote(f"{icon} {c}", safe="")
+        color = CATEGORY_COLORS.get(c, "8D6E63")
+        badge = f"https://img.shields.io/badge/{label}-{len(groups[c])}-{color}?style=flat-square"
+        navlinks.append(f"[![{icon} {c}]({badge})](#user-content-{_slugify(c)})")
     lines.append(" ".join(navlinks))
     lines.append("")
     lines.append("</div>")
