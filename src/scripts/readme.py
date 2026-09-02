@@ -195,33 +195,25 @@ def _source_badge(brand: str, url: str | None) -> str:
     return f"[{badge}]({url})" if url else badge
 
 
-_ICONS_DIR = Path("images/icons")
-_ICON_MANIFEST_PATH = _ICONS_DIR / "manifest.json"
+_CARDS_DIR = Path("images/cards")
+
+# Play Store package for apps whose PKG_NAMES holds a renamed/patched id
+# instead of the stock one (renamed apps aren't listed on the Play Store
+# under that id). Shared with src/scripts/cards.py, which fetches icons.
+STOCK_PKG_OVERRIDE = {
+    "Google-Photos": "com.google.android.apps.photos",
+    "Gboard": "com.google.android.inputmethod.latin",
+    "Messenger": "com.facebook.orca",
+}
 
 
-def _icon_manifest() -> dict[str, str]:
-    if not _ICON_MANIFEST_PATH.exists():
-        return {}
-    return json.loads(_ICON_MANIFEST_PATH.read_text(encoding="utf-8"))
+def _play_store_url(table: str) -> str | None:
+    pkg = STOCK_PKG_OVERRIDE.get(table, PKG_NAMES.get(table))
+    return f"https://play.google.com/store/apps/details?id={pkg}" if pkg else None
 
 
-def _app_icon(table: str) -> str:
-    # Real, circle-cropped Play Store icons (fetched by src/scripts/banner.py)
-    # take priority over the generic Simple Icons brand logo / emoji fallback.
-    path = _ICONS_DIR / f"{table}.png"
-    if path.exists():
-        # No width/height attributes: the file is already baked down to its
-        # display size (see banner.py's _TABLE_ICON_SIZE) so GitHub's markdown
-        # renderer never gets a chance to inject the max-height inline style
-        # that collapses to 0-width inside a table cell on mobile.
-        img = f'<img src="{path.as_posix()}" alt="">'
-        if store_url := _icon_manifest().get(table):
-            return f'<a href="{store_url}" target="_blank" rel="noopener noreferrer">{img}</a>'
-        return img
-    if brand_icon := BRAND_ICONS.get(table):
-        slug, _ = brand_icon
-        return f'<img src="https://cdn.simpleicons.org/{slug}" width="20" height="20" alt="">'
-    return CATEGORIES.get(table, "📦")
+def _has_card(table: str) -> bool:
+    return (_CARDS_DIR / f"{table}-header.svg").exists()
 
 
 def _download_badge(table: str) -> str:
@@ -285,6 +277,28 @@ def _slugify(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+def _card_row(table: str, app_name: str, repo_url: str | None, ob_link: str | None) -> str:
+    base = f"{_CARDS_DIR.as_posix()}/{table}"
+    play_url = _play_store_url(table) or "#"
+    gh_dl_url = f"{REPO_URL}/releases?q={quote(table)}&expanded=true"
+    obtainium_url = ob_link or "#"
+    repo_url = repo_url or gh_dl_url
+    # align="bottom" removes the residual baseline-alignment gap; each block
+    # is its own <a><img> joined by <br> in one paragraph (not separate
+    # blank-line paragraphs) so they sit visually flush as one card, and not
+    # wrapped in a leading <div>/<p> with no blank line around it (that
+    # makes GitHub's parser treat the whole thing as literal HTML instead of
+    # markdown — confirmed the hard way earlier).
+    return (
+        '<div align="center">\n\n'
+        f'<a href="{play_url}"><img align="bottom" src="{base}-header.svg" alt="{app_name}"></a><br>'
+        f'<a href="{repo_url}"><img align="bottom" src="{base}-repo.svg" alt="repo"></a><br>'
+        f'<a href="{gh_dl_url}"><img align="bottom" src="{base}-download.svg" alt="Download"></a>'
+        f'<a href="{obtainium_url}"><img align="bottom" src="{base}-obtainium.svg" alt="Obtainium"></a>\n\n'
+        "</div>"
+    )
+
+
 def _build_table() -> str:
     entries = [e for e in _load_entries() if e.enabled]
     rows = sorted(
@@ -329,21 +343,17 @@ def _build_table() -> str:
             "<summary>Show / hide</summary>",
             "",
         ]
-        # GitHub's mobile table renderer has two separate bugs that a <table>
-        # can't dodge: an empty-header edge column collapses its <img> to 0
-        # width, and even a plain <table>/<td> pair breaks normal inline text
-        # flow badly enough that a literal nbsp between an image and the text
-        # after it still gets a line wrap forced in. A plain bullet list has
-        # neither problem, since it never enters GitHub's table layout path.
         for table, brand, app_name, patches_url, ob_link in groups[category]:
-            icon = _app_icon(table)
-            download = _download_badge(table)
-            source = _source_badge(brand, patches_url)
-            obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-            # nbsp alone isn't enough: GitHub mobile still lets an inline <img>
-            # break away from adjacent text. Wrapping icon+name in a single
-            # white-space:nowrap span is what actually keeps them glued.
-            lines.append(f'- <span style="white-space:nowrap">{icon}&nbsp;**{app_name}**</span> — {source} {download}{obtainium}')
+            if _has_card(table):
+                lines.append(_card_row(table, app_name, patches_url, ob_link))
+            else:
+                # Fallback for an app added since the last manual run of
+                # src/scripts/cards.py (which fetches Play Store icons and
+                # isn't run by CI) — a plain link line rather than a blank gap.
+                download = _download_badge(table)
+                source = _source_badge(brand, patches_url)
+                obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
+                lines.append(f"- **{app_name}** — {source} {download}{obtainium}")
         lines += ["", "</details>"]
     return "\n".join(lines)
 
