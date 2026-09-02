@@ -52,45 +52,9 @@ PKG_NAMES = {
     "SoundCloud": "com.soundcloud.android",
 }
 
-# Fallback icon for the README table's icon column, when an app has no
-# real brand icon on Simple Icons (see BRAND_ICONS below).
-CATEGORIES = {
-    "YouTube": "🎥",
-    "YT-Music": "🎵",
-    "Reddit": "🗨️",
-    "X-Twitter": "🐦",
-    "Instagram": "📸",
-    "Facebook": "📘",
-    "LINE": "💬",
-    "Gboard": "⌨️",
-    "Proton-Mail_hxreborn": "📧",
-    "Niagara-Launcher": "🚀",
-    "Projectivy-Launcher": "🚀",
-    "KineStop": "🏃",
-    "Google-Photos": "📷",
-    "Duolingo": "🦉",
-    "TikTok_icysymmetra": "🎶",
-    "Messenger": "📩",
-    "Twitch": "🎮",
-    "IMDb": "🎬",
-    "SketchBook": "🎨",
-    "AccuWeather": "🌦️",
-    "PictureThis": "🌿",
-    "Mimo": "💻",
-    "Sleep-as-Android": "😴",
-    "Parallel-Space-Pro": "🪞",
-    "AccuBattery": "🔌",
-    "Athena": "🛡️",
-    "Proton-Pass": "🔑",
-    "SD-Maid-SE": "🧹",
-    "CrazyGames": "🎮",
-    "KakaoTalk": "💬",
-    "SoundCloud": "🎧",
-}
-
 # Real per-app brand icon (Simple Icons slug) + official brand color, used for
-# the icon column and the Download badge. Apps without a Simple Icons entry
-# fall back to CATEGORIES / a generic grey badge.
+# the Download badge. Apps without a Simple Icons entry fall back to a
+# generic grey badge.
 BRAND_ICONS = {
     "YouTube": ("youtube", "FF0000"),
     "YT-Music": ("youtubemusic", "FF0000"),

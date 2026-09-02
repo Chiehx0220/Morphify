@@ -1,6 +1,5 @@
 import base64
 import io
-import json
 import re
 import urllib.request
 from pathlib import Path
@@ -14,8 +13,6 @@ except ImportError:
     abort("This script needs Pillow, install it separately with: pip install pillow")
 
 BANNER_PATH = Path("images/apps-marquee.svg")
-ICONS_DIR = Path("images/icons")
-MANIFEST_PATH = ICONS_DIR / "manifest.json"
 
 # Play Store package for apps whose PKG_NAMES holds a renamed/patched id
 # instead of the stock one (renamed apps aren't listed on the Play Store).
@@ -32,14 +29,6 @@ _SIZE = 56
 _GAP = 24
 _STEP = _SIZE + _GAP
 _ROW_H = 84
-
-# GitHub's markdown renderer rewrites an <img>'s width/height HTML attributes
-# into an inline `height:auto;max-height:{N}px` style, which computes to a
-# 0-width box on mobile when the image sits inside a table cell (Chrome
-# anonymous-table-object sizing bug). Shipping the table icon file already
-# baked down to its display size sidesteps that entirely: no width/height
-# attribute is needed on the <img> tag at all.
-_TABLE_ICON_SIZE = 24
 
 
 def _fetch_icon(pkg: str) -> bytes | None:
@@ -67,10 +56,10 @@ def _circle_crop(data: bytes, size: int = 128) -> Image.Image:
     return out
 
 
-def _collect_icons() -> list[tuple[str, str, str, Image.Image]]:
-    """Returns (table, app_name, playstore_url, circle_cropped_image) for each app whose icon was fetched."""
+def _collect_icons() -> list[tuple[str, str, Image.Image]]:
+    """Returns (table, app_name, circle_cropped_image) for each app whose icon was fetched."""
     entries = sorted((e for e in _load_entries() if e.enabled), key=lambda e: e.app_name.lower())
-    icons: list[tuple[str, str, str, Image.Image]] = []
+    icons: list[tuple[str, str, Image.Image]] = []
     for e in entries:
         pkg = STOCK_PKG_OVERRIDE.get(e.table, PKG_NAMES.get(e.table))
         if not pkg:
@@ -78,28 +67,12 @@ def _collect_icons() -> list[tuple[str, str, str, Image.Image]]:
             continue
         try:
             if data := _fetch_icon(pkg):
-                url = f"https://play.google.com/store/apps/details?id={pkg}"
-                icons.append((e.table, e.app_name, url, _circle_crop(data)))
+                icons.append((e.table, e.app_name, _circle_crop(data)))
             else:
                 wpr(f"No Play Store icon found for '{e.table}' ({pkg}), skipping icon")
         except Exception as exc:
             wpr(f"Failed to fetch icon for '{e.table}' ({pkg}): {exc}")
     return icons
-
-
-def _write_icon_files(icons: list[tuple[str, str, str, Image.Image]]) -> None:
-    ICONS_DIR.mkdir(parents=True, exist_ok=True)
-    manifest: dict[str, str] = {}
-    kept = {"manifest.json"}
-    for table, _, url, img in icons:
-        path = ICONS_DIR / f"{table}.png"
-        img.resize((_TABLE_ICON_SIZE, _TABLE_ICON_SIZE)).save(path)
-        kept.add(path.name)
-        manifest[table] = url
-    for stale in ICONS_DIR.iterdir():
-        if stale.name not in kept:
-            stale.unlink()
-    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8")
 
 
 def _image_data_uri(img: Image.Image) -> str:
@@ -122,8 +95,8 @@ def _build_row(items: list[tuple[str, str]], direction: str) -> tuple[str, int]:
     return f'<g class="row row-{direction}">' + "".join(g_items) + "</g>", total_w
 
 
-def _build_svg(icons: list[tuple[str, str, str, Image.Image]]) -> str:
-    pairs = [(name, _image_data_uri(img)) for _, name, _, img in icons]
+def _build_svg(icons: list[tuple[str, str, Image.Image]]) -> str:
+    pairs = [(name, _image_data_uri(img)) for _, name, img in icons]
     half = len(pairs) // 2 + 1
     row1, row2 = pairs[:half], pairs[half:] or pairs[:1]
     canvas_w, canvas_h = 900, _ROW_H * 2
@@ -158,8 +131,6 @@ def generate_banner() -> None:
         return
     BANNER_PATH.write_text(_build_svg(icons), encoding="utf-8")
     pr(f"Wrote {BANNER_PATH} with {len(icons)} icons")
-    _write_icon_files(icons)
-    pr(f"Wrote {len(icons)} icon files + manifest to {ICONS_DIR}")
 
 
 if __name__ == "__main__":
