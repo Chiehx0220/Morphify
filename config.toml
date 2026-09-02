@@ -184,7 +184,7 @@ changelog-keywords = ["MyFitnessPal"]
 [Niagara-Launcher]
 enabled = true
 brand = "hoo-dles"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/bitpit.launcher"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/bitpit.launcher"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
 changelog-keywords = ["Niagara Launcher"]
 
@@ -633,7 +633,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonma
 [Projectivy-Launcher]
 enabled = true
 brand = "hxreborn"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.spocky.projengmenu"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.spocky.projengmenu"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/spocky/projectivy-launcher-android-tv/"
 
 [Projectivy-Launcher.patches]
@@ -642,7 +642,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/spocky/projectivy-launcher-andr
 [KineStop]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.urbandroid.kinestop"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.urbandroid.kinestop"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/urbandroid-team/kinestop-car-sickness-aid/"
 changelog-keywords = ["KineStop"]
 
@@ -726,7 +726,7 @@ changelog-keywords = ["Tumblr"]
 [Twitch]
 enabled = true
 brand = "de-vanced"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/tv.twitch.android.app"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/tv.twitch.android.app"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 changelog-keywords = ["Twitch"]
 
@@ -769,7 +769,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/disney/disney/"
 [Facebook]
 enabled = true
 brand = "de-vanced"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.facebook.katana"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.facebook.katana"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
 arch = "both"
 
@@ -779,7 +779,7 @@ arch = "both"
 [Gboard]
 enabled = true
 brand = "jasonwu1994"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.google.android.inputmethod.latin"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.google.android.inputmethod.latin"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard-google-keyboard/"
 arch = "arm64-v8a"
 
@@ -789,7 +789,7 @@ arch = "arm64-v8a"
 [LINE]
 enabled = true
 brand = "andrew"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/jp.naver.line.android"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/jp.naver.line.android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/line-corporation/line/"
 arch = "both"
 
@@ -976,7 +976,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/mimohello-gmbh/mimo-learn-to-co
 [Parallel-Space-Pro]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.parallel.space.pro"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.parallel.space.pro"
 
 [Parallel-Space-Pro.patches]
 "github:rushiranpise/morphe-patches" = []
@@ -984,7 +984,7 @@ github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/co
 [AccuBattery]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.digibites.accubattery"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.digibites.accubattery"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
 
 [AccuBattery.patches]
@@ -993,7 +993,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/digibites/accubattery/"
 [Athena]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.kin.athena"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.kin.athena"
 
 [Athena.patches]
 "github:rushiranpise/morphe-patches" = []
@@ -1009,7 +1009,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/proton-p
 [SD-Maid-SE]
 enabled = true
 brand = "rushi"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/eu.darken.sdmse"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/eu.darken.sdmse"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/darken/sd-maid-2-se-system-cleaner-github-version/"
 
 [SD-Maid-SE.patches]
@@ -1018,7 +1018,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/darken/sd-maid-2-se-system-clea
 [CrazyGames]
 enabled = true
 brand = "durgesh0505"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.crazygames.crazygamesapp"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.crazygames.crazygamesapp"
 arch = "arm64-v8a"
 
 [CrazyGames.patches]
@@ -1028,7 +1028,7 @@ arch = "arm64-v8a"
 enabled = true
 brand = "AmpleReVanced"
 arch = "arm64-v8a"
-github-dlurl = "https://github.com/Chiehx0220/builder-for-morphe/releases/tag/com.kakao.talk"
+github-dlurl = "https://github.com/Chiehx0220/morphe-vault/releases/tag/com.kakao.talk"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/kakao-corp/kakaotalk/"
 
 [KakaoTalk.patches]

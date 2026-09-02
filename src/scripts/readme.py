@@ -10,7 +10,7 @@ from src.core.logger import abort
 README_PATH = Path("README.md")
 START = "<!-- APPS_TABLE_START -->"
 END = "<!-- APPS_TABLE_END -->"
-REPO_URL = "https://github.com/Chiehx0220/builder-for-morphe"
+REPO_URL = "https://github.com/Chiehx0220/morphe-vault"
 REPO_AUTHOR = "Chiehx0220"
 
 # Android package IDs aren't stored in config.toml (the build system discovers
