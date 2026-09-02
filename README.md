@@ -1,5 +1,9 @@
 <div align="center">
 
+# 🔓 Morphe Vault
+
+*A vault of community Morphe-patched apps — auto-built & auto-updated*
+
 <img src="images/apps-marquee.svg" width="100%" alt="Supported apps">
 
 [![CI](https://github.com/Chiehx0220/morphe-vault/actions/workflows/ci.yml/badge.svg)](https://github.com/Chiehx0220/morphe-vault/actions/workflows/ci.yml)
