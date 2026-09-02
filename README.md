@@ -17,7 +17,7 @@
 
 ![Apps](https://img.shields.io/badge/apps-31-4c9c4c?style=flat-square) ![Sources](https://img.shields.io/badge/sources-13-4c72c9?style=flat-square)
 
-[🎬 Media & Entertainment (7)](#user-content-media-entertainment) &nbsp;|&nbsp; [💬 Social & Messaging (8)](#user-content-social-messaging) &nbsp;|&nbsp; [🔒 Privacy & Security (4)](#user-content-privacy-security) &nbsp;|&nbsp; [🛠️ Utilities (6)](#user-content-utilities) &nbsp;|&nbsp; [📚 Education (2)](#user-content-education) &nbsp;|&nbsp; [🎨 Creativity (2)](#user-content-creativity) &nbsp;|&nbsp; [🚀 Launchers (2)](#user-content-launchers)
+[🎬&nbsp;![Media & Entertainment](https://img.shields.io/badge/Media_%26_Entertainment-7-EF5350?style=flat-square)](#user-content-media-entertainment) [💬&nbsp;![Social & Messaging](https://img.shields.io/badge/Social_%26_Messaging-8-5C6BC0?style=flat-square)](#user-content-social-messaging) [🔒&nbsp;![Privacy & Security](https://img.shields.io/badge/Privacy_%26_Security-4-26A69A?style=flat-square)](#user-content-privacy-security) [🛠️&nbsp;![Utilities](https://img.shields.io/badge/Utilities-6-78909C?style=flat-square)](#user-content-utilities) [📚&nbsp;![Education](https://img.shields.io/badge/Education-2-FFA726?style=flat-square)](#user-content-education) [🎨&nbsp;![Creativity](https://img.shields.io/badge/Creativity-2-AB47BC?style=flat-square)](#user-content-creativity) [🚀&nbsp;![Launchers](https://img.shields.io/badge/Launchers-2-29B6F6?style=flat-square)](#user-content-launchers)
 
 </div>
 

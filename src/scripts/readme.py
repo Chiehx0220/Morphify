@@ -98,6 +98,18 @@ CATEGORY_ICONS = {
     "Other": "📦",
 }
 
+# Accent color per category, used for the nav badges in _build_table().
+CATEGORY_COLORS = {
+    "Media & Entertainment": "EF5350",
+    "Social & Messaging": "5C6BC0",
+    "Privacy & Security": "26A69A",
+    "Utilities": "78909C",
+    "Education": "FFA726",
+    "Creativity": "AB47BC",
+    "Launchers": "29B6F6",
+    "Other": "8D6E63",
+}
+
 CATEGORY_GROUP = {
     "YouTube": "Media & Entertainment",
     "YT-Music": "Media & Entertainment",
@@ -151,7 +163,7 @@ def _patches_url(patches: dict[str, dict]) -> str | None:
 
 
 def _badge_text(s: str) -> str:
-    return s.replace("-", "--").replace(" ", "_")
+    return s.replace("-", "--").replace(" ", "_").replace("&", "%26")
 
 
 def _source_badge(brand: str, url: str | None) -> str:
@@ -288,8 +300,12 @@ def _build_table() -> str:
     ]
     # GitHub prefixes hand-written heading `id`s with "user-content-" to avoid
     # colliding with its own page ids, so the anchor links must match that.
-    navlinks = [f"[{CATEGORY_ICONS.get(c, '📦')} {c} ({len(groups[c])})](#user-content-{_slugify(c)})" for c in order]
-    lines.append(" &nbsp;|&nbsp; ".join(navlinks))
+    navlinks = [
+        f"[{CATEGORY_ICONS.get(c, '📦')}&nbsp;![{c}](https://img.shields.io/badge/{_badge_text(c)}-{len(groups[c])}-{CATEGORY_COLORS.get(c, '8D6E63')}?style=flat-square)]"
+        f"(#user-content-{_slugify(c)})"
+        for c in order
+    ]
+    lines.append(" ".join(navlinks))
     lines.append("")
     lines.append("</div>")
 
