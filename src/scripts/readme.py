@@ -19,8 +19,8 @@ REPO_AUTHOR = "Chiehx0220"
 # sources rename the package (e.g. Gboard's "Package Rename" patch) so the
 # patched app can be installed alongside the original.
 PKG_NAMES = {
-    "YouTube": "com.google.android.youtube",
-    "YT-Music": "com.google.android.apps.youtube.music",
+    "YouTube": "app.morphe.android.youtube",
+    "YT-Music": "app.morphe.android.apps.youtube.music",
     "Reddit": "com.reddit.frontpage",
     "X-Twitter": "com.twitter.android",
     "Instagram": "com.instagram.android",
@@ -180,6 +180,8 @@ STOCK_PKG_OVERRIDE = {
     "Google-Photos": "com.google.android.apps.photos",
     "Gboard": "com.google.android.inputmethod.latin",
     "Messenger": "com.facebook.orca",
+    "YouTube": "com.google.android.youtube",
+    "YT-Music": "com.google.android.apps.youtube.music",
 }
 
 
