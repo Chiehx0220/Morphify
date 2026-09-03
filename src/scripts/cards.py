@@ -73,6 +73,19 @@ def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def _truncate(s: str, max_width_px: float, font_size: float, ratio: float = 0.52) -> str:
+    """Rough width estimate (avg glyph width ≈ ratio * font-size) — SVG text
+    doesn't wrap or auto-shrink, so anything left un-truncated at this card
+    width just overflows the viewBox and gets silently clipped mid-word."""
+    char_w = font_size * ratio
+    max_chars = max(1, int(max_width_px / char_w))
+    if len(s) <= max_chars:
+        return s
+    if max_chars <= 1:
+        return s[:1]
+    return s[: max_chars - 1] + "…"
+
+
 def _fetch_icon_b64(pkg: str, size: int = 160) -> str | None:
     req = urllib.request.Request(f"https://play.google.com/store/apps/details?id={pkg}", headers=_HEADERS)
     with urllib.request.urlopen(req, timeout=15) as resp:
@@ -121,7 +134,8 @@ def _header_svg(name: str, icon_b64: str, accent: str, uid: str) -> str:
     ICON = 26
     icon_x, icon_y = 8, (H - ICON) / 2
     text_x = icon_x + ICON + 7
-    name_e = esc(name)
+    avail = W - text_x - 5
+    name_e = esc(_truncate(name, avail, 12))
     shape = _rounded_shapes(0, 0, W, H, RADIUS, {"tl", "tr"})
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <defs>
@@ -150,8 +164,9 @@ def _repo_svg(repo_url: str) -> str:
     icon_y = H / 2 - icon_size / 2
     scale = icon_size / 24
     text_x = icon_x + icon_size + 4
-    owner_e = esc(owner)
-    name_e = esc(name)
+    avail = W - text_x - 5
+    owner_e = esc(_truncate(owner, avail, 7.5))
+    name_e = esc(_truncate(name, avail, 7.5))
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <rect x="0" y="0" width="{W}" height="{H}" fill="{SURFACE_HIGH}"/>
 <g transform="translate({icon_x},{icon_y}) scale({scale})"><path d="{GITHUB_PATH}" fill="{TEXT_MUTED}"/></g>
