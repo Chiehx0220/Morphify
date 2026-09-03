@@ -184,6 +184,7 @@ changelog-keywords = ["MyFitnessPal"]
 [Niagara-Launcher]
 enabled = true
 brand = "hoo-dles"
+app-name = "Niagara"
 github-dlurl = "https://github.com/Chiehx0220/Morphify/releases/tag/bitpit.launcher"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
 changelog-keywords = ["Niagara Launcher"]
@@ -633,6 +634,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonma
 [Projectivy-Launcher]
 enabled = true
 brand = "hxreborn"
+app-name = "Projectivy"
 github-dlurl = "https://github.com/Chiehx0220/Morphify/releases/tag/com.spocky.projengmenu"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/spocky/projectivy-launcher-android-tv/"
 

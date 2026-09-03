@@ -98,15 +98,19 @@ def _rounded_shapes(x: float, y: float, w: float, h: float, radius: float, round
     """A native rx-rounded rect (guaranteed smooth — no hand-rolled arc
     math) plus a same-size square patch over every corner that should stay
     square, flattening it back out."""
-    all_corners = {"tl", "tr", "bl", "br"}
-    parts = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{radius}" ry="{radius}"/>']
     positions = {
         "tl": (x, y),
         "tr": (x + w - radius, y),
         "bl": (x, y + h - radius),
         "br": (x + w - radius, y + h - radius),
     }
-    for c in all_corners - rounded_corners:
+    parts = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{radius}" ry="{radius}"/>']
+    # Iterate a fixed order (not a set) — output must be reproducible so
+    # re-running this script doesn't produce a spurious diff on every corner
+    # combination, since Python's set iteration order isn't stable across runs.
+    for c in ("tl", "tr", "bl", "br"):
+        if c in rounded_corners:
+            continue
         px, py = positions[c]
         parts.append(f'<rect x="{px}" y="{py}" width="{radius}" height="{radius}"/>')
     return "".join(parts)
