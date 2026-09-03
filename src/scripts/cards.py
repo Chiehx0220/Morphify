@@ -130,16 +130,17 @@ def _rounded_shapes(x: float, y: float, w: float, h: float, radius: float, round
 
 
 def _header_svg(name: str, icon_b64: str, accent: str, uid: str) -> str:
-    H = 38
-    ICON = 26
-    icon_x, icon_y = 8, (H - ICON) / 2
-    text_x = icon_x + ICON + 7
-    avail = W - text_x - 5
+    H = 62
+    ICON = 32
+    icon_cx = W / 2
+    icon_y = 8
+    icon_cy = icon_y + ICON / 2
+    avail = W - 16
     name_e = esc(_truncate(name, avail, 12))
     shape = _rounded_shapes(0, 0, W, H, RADIUS, {"tl", "tr"})
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <defs>
-<clipPath id="ic{uid}"><circle cx="{icon_x+ICON/2}" cy="{icon_y+ICON/2}" r="{ICON/2}"/></clipPath>
+<clipPath id="ic{uid}"><circle cx="{icon_cx}" cy="{icon_cy}" r="{ICON/2}"/></clipPath>
 <radialGradient id="glow{uid}" cx="50%" cy="50%" r="50%">
 <stop offset="0%" stop-color="{accent}" stop-opacity="0.18"/>
 <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
@@ -148,9 +149,9 @@ def _header_svg(name: str, icon_b64: str, accent: str, uid: str) -> str:
 </defs>
 <g clip-path="url(#shape{uid})">
 <rect x="0" y="0" width="{W}" height="{H}" fill="{SURFACE}"/>
-<circle cx="{icon_x+ICON/2}" cy="{icon_y+ICON/2}" r="{ICON/2+3}" fill="url(#glow{uid})"/>
-<image x="{icon_x}" y="{icon_y}" width="{ICON}" height="{ICON}" href="data:image/png;base64,{icon_b64}" clip-path="url(#ic{uid})"/>
-<text x="{text_x}" y="{H/2 + 4}" font-family="{FONT}" font-size="12" font-weight="700" fill="{TEXT}">{name_e}</text>
+<circle cx="{icon_cx}" cy="{icon_cy}" r="{ICON/2+3}" fill="url(#glow{uid})"/>
+<image x="{icon_cx-ICON/2}" y="{icon_y}" width="{ICON}" height="{ICON}" href="data:image/png;base64,{icon_b64}" clip-path="url(#ic{uid})"/>
+<text x="{W/2}" y="{icon_y+ICON+18}" font-family="{FONT}" font-size="12" font-weight="700" fill="{TEXT}" text-anchor="middle">{name_e}</text>
 </g>
 </svg>'''
 
