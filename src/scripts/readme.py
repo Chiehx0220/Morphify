@@ -256,25 +256,44 @@ def _slugify(s: str) -> str:
 
 
 def _card_row(table: str, app_name: str, repo_url: str | None, ob_link: str | None) -> str:
+    """The inner content of one app's card, for a single <td>. Cards are
+    laid out two-per-row in an HTML <table> (see _cards_table()) — 119px is
+    the widest a card can be and still not wrap onto its own line there, on
+    the narrowest common mobile viewport (360px; GitHub's own <td> padding
+    eats into that budget, confirmed empirically). align="bottom" removes
+    the residual baseline-alignment gap; header/repo/actions are joined by
+    <br> in one paragraph (not separate blank-line paragraphs) so they sit
+    visually flush as one card, and the whole thing isn't wrapped in a
+    leading <div>/<p> with no blank line around it (that makes GitHub's
+    parser treat it as literal HTML instead of markdown — confirmed the
+    hard way earlier).
+    """
     base = f"{_CARDS_DIR.as_posix()}/{table}"
     play_url = _play_store_url(table) or "#"
     gh_dl_url = f"{REPO_URL}/releases?q={quote(table)}&expanded=true"
     obtainium_url = ob_link or "#"
     repo_url = repo_url or gh_dl_url
-    # align="bottom" removes the residual baseline-alignment gap; each block
-    # is its own <a><img> joined by <br> in one paragraph (not separate
-    # blank-line paragraphs) so they sit visually flush as one card, and not
-    # wrapped in a leading <div>/<p> with no blank line around it (that
-    # makes GitHub's parser treat the whole thing as literal HTML instead of
-    # markdown — confirmed the hard way earlier).
     return (
-        '<div align="center">\n\n'
         f'<a href="{play_url}"><img align="bottom" src="{base}-header.svg" alt="{app_name}"></a><br>'
         f'<a href="{repo_url}"><img align="bottom" src="{base}-repo.svg" alt="repo"></a><br>'
         f'<a href="{gh_dl_url}"><img align="bottom" src="{base}-download.svg" alt="Download"></a>'
-        f'<a href="{obtainium_url}"><img align="bottom" src="{base}-obtainium.svg" alt="Obtainium"></a>\n\n'
-        "</div>"
+        f'<a href="{obtainium_url}"><img align="bottom" src="{base}-obtainium.svg" alt="Obtainium"></a>'
     )
+
+
+def _cards_table(cards: list[str]) -> str:
+    """Lay out card contents two-per-row. No wrapping <div> around the
+    <table> — that's what breaks GitHub's own mobile horizontal-scroll
+    wrapper for tables, confirmed the hard way earlier."""
+    lines = ['<table align="center">']
+    for i in range(0, len(cards), 2):
+        pair = cards[i : i + 2]
+        lines.append("<tr>")
+        for card in pair:
+            lines += ['<td align="center">', "", card, "", "</td>"]
+        lines.append("</tr>")
+    lines.append("</table>")
+    return "\n".join(lines)
 
 
 def _build_table() -> str:
@@ -329,9 +348,11 @@ def _build_table() -> str:
             "<summary>Show / hide</summary>",
             "",
         ]
+        cards = []
+        fallback_lines = []
         for table, brand, app_name, patches_url, ob_link in groups[category]:
             if _has_card(table):
-                lines.append(_card_row(table, app_name, patches_url, ob_link))
+                cards.append(_card_row(table, app_name, patches_url, ob_link))
             else:
                 # Fallback for an app added since the last manual run of
                 # src/scripts/cards.py (which fetches Play Store icons and
@@ -339,7 +360,11 @@ def _build_table() -> str:
                 download = _download_badge(table)
                 source = _source_badge(brand, patches_url)
                 obtainium = f" [![Obtainium](https://img.shields.io/badge/Add_to-Obtainium-4500FF?style=flat-square&logo=obtainium)]({ob_link})" if ob_link else ""
-                lines.append(f"- **{app_name}** — {source} {download}{obtainium}")
+                fallback_lines.append(f"- **{app_name}** — {source} {download}{obtainium}")
+        if cards:
+            lines += ["", _cards_table(cards)]
+        if fallback_lines:
+            lines += ["", *fallback_lines]
         lines += ["", "</details>"]
     return "\n".join(lines)
 

@@ -52,14 +52,19 @@ def _accent_for(table: str) -> str:
 _HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 _OG_IMAGE = re.compile(r'<meta property="og:image" content="([^"]+)"')
 
-SURFACE = "#1B1E24"
-SURFACE_HIGH = "#22262E"
-TEXT = "#F1F2F4"
-TEXT_MUTED = "#9AA1AC"
+SURFACE = "#FAF6ED"
+SURFACE_HIGH = "#F0E9D8"
+TEXT = "#2B2620"
+TEXT_MUTED = "#867E6E"
+DOWNLOAD_COLOR = "#24292F"  # GitHub's own dark brand color — download always comes from GitHub Releases
+OBTAINIUM_COLOR = "#7C5CBF"
 FONT = "'Roboto','Segoe UI',Helvetica,Arial,sans-serif"
 
-W = 320
-RADIUS = 16
+# 119px is the widest a card can be and still sit two-per-row without
+# wrapping on the narrowest common mobile viewport (360px, tested against
+# GitHub's own README <td> padding) — see images/cards width tuning notes.
+W = 119
+RADIUS = 10
 
 GITHUB_PATH = "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
 
@@ -107,44 +112,47 @@ def _rounded_shapes(x: float, y: float, w: float, h: float, radius: float, round
     return "".join(parts)
 
 
-def _header_svg(name: str, pkg_b64: str, pkg_name: str, accent: str, uid: str) -> str:
+def _header_svg(name: str, icon_b64: str, accent: str, uid: str) -> str:
+    H = 38
+    ICON = 26
+    icon_x, icon_y = 8, (H - ICON) / 2
+    text_x = icon_x + ICON + 7
     name_e = esc(name)
-    H = 92
-    ICON = 56
-    icon_x, icon_y = 20, (H - ICON) / 2
-    text_x = icon_x + ICON + 16
     shape = _rounded_shapes(0, 0, W, H, RADIUS, {"tl", "tr"})
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <defs>
 <clipPath id="ic{uid}"><circle cx="{icon_x+ICON/2}" cy="{icon_y+ICON/2}" r="{ICON/2}"/></clipPath>
 <radialGradient id="glow{uid}" cx="50%" cy="50%" r="50%">
-<stop offset="0%" stop-color="{accent}" stop-opacity="0.35"/>
+<stop offset="0%" stop-color="{accent}" stop-opacity="0.18"/>
 <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
 </radialGradient>
 <clipPath id="shape{uid}">{shape}</clipPath>
 </defs>
 <g clip-path="url(#shape{uid})">
 <rect x="0" y="0" width="{W}" height="{H}" fill="{SURFACE}"/>
-<circle cx="{icon_x+ICON/2}" cy="{icon_y+ICON/2}" r="{ICON/2+8}" fill="url(#glow{uid})"/>
-<image x="{icon_x}" y="{icon_y}" width="{ICON}" height="{ICON}" href="data:image/png;base64,{pkg_b64}" clip-path="url(#ic{uid})"/>
-<text x="{text_x}" y="{icon_y + 25}" font-family="{FONT}" font-size="20" font-weight="700" fill="{TEXT}">{name_e}</text>
-<text x="{text_x}" y="{icon_y + 46}" font-family="{FONT}" font-size="13" fill="{TEXT_MUTED}">{pkg_name}</text>
+<circle cx="{icon_x+ICON/2}" cy="{icon_y+ICON/2}" r="{ICON/2+3}" fill="url(#glow{uid})"/>
+<image x="{icon_x}" y="{icon_y}" width="{ICON}" height="{ICON}" href="data:image/png;base64,{icon_b64}" clip-path="url(#ic{uid})"/>
+<text x="{text_x}" y="{H/2 + 4}" font-family="{FONT}" font-size="12" font-weight="700" fill="{TEXT}">{name_e}</text>
 </g>
 </svg>'''
 
 
 def _repo_svg(repo_url: str) -> str:
     short = repo_url.split("github.com/", 1)[-1] if repo_url else ""
-    url_e = esc(short)
-    H = 44
-    icon_size = 15
-    icon_x, icon_y = 20, (H - icon_size) / 2
+    owner, _, name = short.partition("/")
+    H = 28
+    icon_size = 9
+    icon_x = 8
+    icon_y = H / 2 - icon_size / 2
     scale = icon_size / 24
-    text_x = icon_x + icon_size + 8
+    text_x = icon_x + icon_size + 4
+    owner_e = esc(owner)
+    name_e = esc(name)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <rect x="0" y="0" width="{W}" height="{H}" fill="{SURFACE_HIGH}"/>
 <g transform="translate({icon_x},{icon_y}) scale({scale})"><path d="{GITHUB_PATH}" fill="{TEXT_MUTED}"/></g>
-<text x="{text_x}" y="{H/2 + 4.5}" font-family="{FONT}" font-size="12" fill="{TEXT_MUTED}">{url_e}</text>
+<text x="{text_x}" y="{H/2 - 2}" font-family="{FONT}" font-size="7.5" fill="{TEXT_MUTED}">{owner_e}</text>
+<text x="{text_x}" y="{H/2 + 9}" font-family="{FONT}" font-size="7.5" fill="{TEXT_MUTED}">{name_e}</text>
 </svg>'''
 
 
@@ -155,9 +163,9 @@ def _text_color_for(bg_hex: str) -> str:
     return "#101214" if luma > 150 else "#FFFFFF"
 
 
-def _action_svg(text: str, side: str, obtainium_b64: str | None = None, accent: str | None = None, github_glyph: bool = False) -> str:
+def _action_svg(text: str, side: str, kind: str, obtainium_b64: str | None = None) -> str:
     bw = W / 2
-    h = 56
+    h = 22
     gap = 1
     inset = gap / 2
     if side == "left":
@@ -168,27 +176,26 @@ def _action_svg(text: str, side: str, obtainium_b64: str | None = None, accent: 
         rounded = {"br"}
     shape = _rounded_shapes(rect_x, 0, rect_w, h, RADIUS, rounded)
 
-    if accent:
-        fill, fg = accent, _text_color_for(accent)
-    else:
-        fill, fg = SURFACE_HIGH, TEXT
+    fill = DOWNLOAD_COLOR if kind == "download" else OBTAINIUM_COLOR
+    fg = _text_color_for(fill)
 
-    icon_size = 18
-    content_w = icon_size + 8 + len(text) * 7.2
+    icon_size = 9
+    font_size = 7.5
+    content_w = icon_size + 3 + len(text) * font_size * 0.5
     content_x = rect_x + (rect_w - content_w) / 2
     icon_y = (h - icon_size) / 2
-    text_x = content_x + icon_size + 8
+    text_x = content_x + icon_size + 3
 
-    if github_glyph:
+    if kind == "obtainium":
+        icon_el = f'<image x="{content_x}" y="{icon_y}" width="{icon_size}" height="{icon_size}" href="data:image/png;base64,{obtainium_b64}"/>'
+    else:
         scale = icon_size / 24
         icon_el = f'<g transform="translate({content_x},{icon_y}) scale({scale})"><path d="{GITHUB_PATH}" fill="{fg}"/></g>'
-    else:
-        icon_el = f'<image x="{content_x}" y="{icon_y}" width="{icon_size}" height="{icon_size}" href="data:image/png;base64,{obtainium_b64}"/>'
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{bw}" height="{h}" viewBox="0 0 {bw} {h}">
 <g fill="{fill}">{shape}</g>
 {icon_el}
-<text x="{text_x}" y="{h/2 + 5}" font-family="{FONT}" font-size="14" font-weight="600" fill="{fg}">{text}</text>
+<text x="{text_x}" y="{h/2 + 2.5}" font-family="{FONT}" font-size="{font_size}" font-weight="600" fill="{fg}">{text}</text>
 </svg>'''
 
 
@@ -217,16 +224,15 @@ def generate_cards() -> None:
             wpr(f"Failed to fetch icon for '{e.table}' ({pkg}): {exc}")
             continue
 
-        real_pkg_name = PKG_NAMES.get(e.table, pkg)
         repo_url = _patches_url(e.patches) or ""
         accent = _accent_for(e.table)
         uid = str(i)
 
         for suffix, svg in (
-            ("header", _header_svg(e.app_name, icon_b64, real_pkg_name, accent, uid)),
+            ("header", _header_svg(e.app_name, icon_b64, accent, uid)),
             ("repo", _repo_svg(repo_url)),
-            ("download", _action_svg("GitHub Download", "left", accent=accent, github_glyph=True)),
-            ("obtainium", _action_svg("Add to Obtainium", "right", obtainium_b64=obtainium_b64)),
+            ("download", _action_svg("Download", "left", "download")),
+            ("obtainium", _action_svg("Obtainium", "right", "obtainium", obtainium_b64=obtainium_b64)),
         ):
             fname = f"{e.table}-{suffix}.svg"
             (CARDS_DIR / fname).write_text(svg, encoding="utf-8")
