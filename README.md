@@ -25,11 +25,11 @@
 
 </div>
 
-<div align="center">
+<div align="center"><i>
 
 <h3 id="media-entertainment">🎬 Media & Entertainment (7)</h3>
 
-</div>
+</i></div>
 
 <details open>
 <summary>Show / hide</summary>
